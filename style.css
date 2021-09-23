@@ -1,0 +1,41 @@
+:root {
+  /* color palette */
+  --clr-dark: #1a2139;
+  --clr-neutral-dark: #333e5b;
+  --clr-neutral: #798190;
+  --clr-neutral-light: #9d9683;
+  --clr-light: #fe303a;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: red;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}
+
+footer button {
+  background-color: var(--clr-neutral-light);
+  border: none;
+  height: 100%;
+  width: calc(100vw / 3);
+}
+
+footer button:hover {
+  background-color: var(--clr-neutral);
+  cursor: pointer;
+  color: black;
+}
