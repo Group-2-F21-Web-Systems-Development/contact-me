@@ -3,9 +3,10 @@
 
 :root {
   /* color palette */
-  --clr-text: #000000;
-  --clr-background: #ffffff;
+  --clr-dark: #000000;
+  --clr-light: #ffffff;
   --clr-accent: #844cce;
+  --clr--accent-compliment: #96CE4C;
   --fw-normal: 400;
   --fw-bold: 700;
 }
@@ -16,8 +17,8 @@ body, html {
   height: 100%;
   width: 100%;
   font-family: 'Cabin', sans-serif;
-  background-color: var(--clr-background);
-  color: var(--clr-text)
+  background-color: var(--clr-light);
+  color: var(--clr-dark)
 }
 
 *,
@@ -40,7 +41,7 @@ a:focus {
 /* header styling */
 
 header {
-  background-color: var(--clr-background);
+  background-color: var(--clr-light);
   width: 100%;
   top: 0;
   position: sticky;
