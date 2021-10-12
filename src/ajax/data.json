@@ -1,0 +1,6 @@
+{
+  "header" : {
+    "nav": [{"Groups": "./groups.php"}, {"Profile": "./profile.php"}, {"Login": "#"}, {"Sign Up": "#"}],
+    "logo": "./src/contact-me-logo.png"
+  }
+}

@@ -16,10 +16,86 @@ body, html {
   height: 100%;
   width: 100%;
   font-family: 'Cabin', sans-serif;
+  background-color: var(--clr-background);
+  color: var(--clr-text)
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  color: var(--clr-accent)
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* header styling */
+
+header {
+  background-color: var(--clr-background);
+  width: 100%;
+  top: 0;
+  position: sticky;
+  z-index: 99;
+  height: 5em;
+}
+
+header nav {
+  height: 100%;
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  height: 100%;
+}
+
+header li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header a {
+  padding: 0 1em;
+}
+
+header a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+header ul li:nth-of-type(2) {
+  margin-left: auto;
+}
+
+header ul li:nth-last-of-type(2) {
+  margin-left: auto;
+}
+
+/* cool vertical line between some links in header */
+header ul li:nth-of-type(2n) a::after { 
+  --height: 1.1em;
+
+  content: '';
+  width: 2px;
+  position: absolute;
+  right: -1px;
+  top: calc(50% - (.5 * var(--height)));
+  height: var(--height);
+  background-color: var(--clr-accent);
 }
