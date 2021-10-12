@@ -1,0 +1,5 @@
+{
+  "header" : {
+    "nav": [{"Contact Me": "./index.php"}, {"Groups": "./groups.php"}, {"Profile": "./profile.php"}, {"Login": "#"}, {"Sign Up": "#"}]
+  }
+}
