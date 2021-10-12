@@ -1,15 +1,23 @@
+h1 {
+  /* color: var(--clr-accent); */
+  text-align: center;
+  font-size: 2em;
+}
+
 .groups {
   display: flex;
   flex-direction: column;
 }
 
 .group {
+  --height: 5em;
+
   position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 5em;
+  height: var(--height);
   border-bottom: 1px solid var(--clr-dark);
 }
 
@@ -28,7 +36,14 @@
 }
 
 .group img {
-  height: 80%;
+  /* min/max height and width keeps image square */
+  max-height: calc(.8 * var(--height));
+  max-width: calc(.8 * var(--height));
+  min-height: calc(.8 * var(--height));
+  min-width: calc(.8 * var(--height));
+
+  overflow: hidden;
+  object-fit: cover;
   margin-left: 1em;
   border-radius: 50%;
   border: 2px solid var(--clr-dark);
