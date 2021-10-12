@@ -3,6 +3,7 @@
 /* logo font */
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
 
+
 :root {
   /* color palette */
   --clr-dark: #000000;
@@ -17,7 +18,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   font-family: 'Cabin', sans-serif;
   background-color: var(--clr-light);
