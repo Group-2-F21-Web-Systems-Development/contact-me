@@ -14,16 +14,13 @@ $(document).ready(function() { // after everything in html loads
         a = document.createElement("a");
         a.append(Object.keys(liEl));
         a.setAttribute("href", Object.values(liEl));
+        if (i==0) { // add logo class
+          a.classList.toggle("logo");
+        }
         li.append(a);
         ul.append(li);
       });
-      // add image logo
-      logo = document.createElement("img");
-      logo.setAttribute("alt", "Contact Me logo");
-      logo.setAttribute("src", responseData.header.logo);
-      li = document.createElement("li");
-      li.append(logo);
-      ul.prepend(li);
+      // append nav and ul with li children to header      
       nav.append(ul);
       header.append(nav);
       
