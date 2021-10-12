@@ -1,0 +1,25 @@
+/* sitewide styles */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap');
+
+:root {
+  /* color palette */
+  --clr-text: #000000;
+  --clr-background: #ffffff;
+  --clr-accent: #844cce;
+  --fw-normal: 400;
+  --fw-bold: 700;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Cabin', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
