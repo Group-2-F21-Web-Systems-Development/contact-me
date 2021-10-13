@@ -6,12 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Me Profile Page</title>
   <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="  crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="./src/styles/style.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="./src/ajax/ajax.js"></script>
 </head>
-<div id= contact>
 <body>
-<img src="cloud.jpg" alt="clouds">
 <div id="bodyBlock">
       <h1>Edit Your Profile</h1>
       <form id="addForm" name="addForm" action="#" method="post" onsubmit="return validate(this);">
@@ -35,14 +33,10 @@
             <label for="comments">Comments:</label>
             <div class="value"><textarea rows="4" cols="40" name="comments" id="comments" onclick="clearBox('comments');">Please enter your comments</textarea></div>
             <!-- onclick=clearBox makes sure that once you click this field the text inside of it is removed -->
-            <input type="submit" value="save" id="save" name="save"/>
-          </div>
+            <input type="submit" value="save" id="save" name="save"/></div>
           <button onclick="clickMe()">Click me</button>
         </fieldset>
       </form>
     </div>
-      
- 
 </body>
-</div>
 </html>
