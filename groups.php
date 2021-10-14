@@ -13,6 +13,14 @@
 <body>
   <section class="groups">
     <h1>View Your Groups</h1>
+    <button class= "create-groups-btn closed">
+      <h2>Create</h2>
+      <ul>
+        <li class="new-group"><a href="">+ group</a></li>
+        <li><a href="">monkey</a></li>
+        <li><a href="">mommy</a></li>
+      </ul>
+    </button>
     <ul>
       <li class="group">
         <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">

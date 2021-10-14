@@ -4,6 +4,55 @@ h1 {
   font-size: 2em;
 }
 
+.groups {
+  position: relative;
+}
+
+/* create groups and see old created groups button */
+.create-groups-btn {
+  position: absolute;
+  right: 4em;
+  top: 0;
+  width: 10em;
+  height: 4em;
+  border: 2px solid var(--clr-accent);
+  border-radius: 100vw;
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--clr-light);
+  color: var(--clr-accent);
+}
+
+.create-groups-btn h2 {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.create-groups-btn ul {
+  --width: 100px;
+  z-index: 95;
+  height: 100px;
+  width: var(--width);
+  position: absolute;
+  top: calc(2px + 100%);
+  right: 0;
+  padding: 0;
+  margin: 0;
+  border: 2px solid var(--clr-accent);
+  border-top: none;
+  list-style-type: none;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 100ms ease-in;
+
+  background-color: var(--clr-light);
+}
+
+.create-groups-btn:hover ul {
+  transform: scaleY(1);
+}
+
 .groups ul {
   padding: 0;
   margin: 0;
