@@ -26,91 +26,91 @@
     <ul>
       <li>
         <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Lorem, ipsum.</a>
+        <a href="./personalprofile.php">Lorem, ipsum.</a>
       </li>
       <li>
         <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Voluptatum, porro.</a>
+        <a href="./personalprofile.php">Voluptatum, porro.</a>
       </li>
       <li>
         <img src="./src/img/plotka.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Voluptas, assumenda?</a>
+        <a href="./personalprofile.php">Voluptas, assumenda?</a>
       </li>
       <li>
         <img src="./src/img/chair-amc.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Labore, velit.</a>
+        <a href="./personalprofile.php">Labore, velit.</a>
       </li>
       <li>
         <img src="./src/img/munasinghe.png" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Recusandae, beatae.</a>
+        <a href="./personalprofile.php">Recusandae, beatae.</a>
       </li>
       <li>
         <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Repellat, autem!</a>
+        <a href="./personalprofile.php">Repellat, autem!</a>
       </li>
       <li>
         <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Animi, dolore.</a>
+        <a href="./personalprofile.php">Animi, dolore.</a>
       </li>
       <li>
         <img src="./src/img/plotka.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Vero, velit.</a>
+        <a href="./personalprofile.php">Vero, velit.</a>
       </li>
       <li>
         <img src="./src/img/chair-amc.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Unde, atque?</a>
+        <a href="./personalprofile.php">Unde, atque?</a>
       </li>
       <li>
         <img src="./src/img/munasinghe.png" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Voluptate, non.</a>
+        <a href="./personalprofile.php">Voluptate, non.</a>
       </li>
       <li>
         <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Debitis, officia!</a>
+        <a href="./personalprofile.php">Debitis, officia!</a>
       </li>
       <li>
         <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Dolor, possimus!</a>
+        <a href="./personalprofile.php">Dolor, possimus!</a>
       </li>
       <li>
         <img src="./src/img/plotka.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Modi, expedita?</a>
+        <a href="./personalprofile.php">Modi, expedita?</a>
       </li>
       <li>
         <img src="./src/img/chair-amc.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Iure, eum.</a>
+        <a href="./personalprofile.php">Iure, eum.</a>
       </li>
       <li>
         <img src="./src/img/munasinghe.png" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Repellendus, similique.</a>
+        <a href="./personalprofile.php">Repellendus, similique.</a>
       </li>
       <li>
         <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Debitis, cumque?</a>
+        <a href="./personalprofile.php">Debitis, cumque?</a>
       </li>
       <li>
         <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Quam, natus!</a>
+        <a href="./personalprofile.php">Quam, natus!</a>
       </li>
       <li>
         <img src="./src/img/plotka.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Animi, quis?</a>
+        <a href="./personalprofile.php">Animi, quis?</a>
       </li>
       <li>
         <img src="./src/img/chair-amc.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Earum, et!</a>
+        <a href="./personalprofile.php">Earum, et!</a>
       </li>
       <li>
         <img src="./src/img/munasinghe.png" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Inventore, tempora!</a>
+        <a href="./personalprofile.php">Inventore, tempora!</a>
       </li>
       <li>
         <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Minus, quo.</a>
+        <a href="./personalprofile.php">Minus, quo.</a>
       </li>
       <li>
         <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="">Minus, aliquam?</a>
+        <a href="./personalprofile.php">Minus, aliquam?</a>
       </li>
     </ul>
   </section>
