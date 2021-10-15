@@ -4,9 +4,9 @@ h1 {
   font-size: 2em;
 }
 
-.groups {
-  display: flex;
-  flex-direction: column;
+.groups ul {
+  padding: 0;
+  margin: 0;
 }
 
 .group {
@@ -49,9 +49,14 @@ h1 {
   border: 2px solid var(--clr-dark);
 }
 
-.group h2 {
+.group a {
   margin-right: auto;
+  font-size: 1.5em;
   margin-left: 1em;
+  display: flex;
+  align-self: center;
+  padding: 1em 0;
+
 }
 
 .people {
