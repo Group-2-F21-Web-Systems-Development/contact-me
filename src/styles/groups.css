@@ -5,8 +5,82 @@ h1 {
 }
 
 .groups {
+  position: relative;
+}
+
+/* create groups and see old created groups button */
+.create-groups-btn {
+  position: absolute;
+  right: 4em;
+  top: 0;
+  width: 10em;
+  height: 4em;
+  border: 2px solid var(--clr-accent);
+  border-radius: 100vw;
+  cursor: pointer;
+  background-color: var(--clr-light);
+  color: var(--clr-accent);
   display: flex;
   flex-direction: column;
+  justify-items: center;
+  align-content: center;
+}
+
+.create-groups-btn h2 {
+  display: block;
+  padding: 0;
+  margin: 0;
+  margin-top: .6em;
+  text-align: center;
+}
+
+.create-groups-btn ul {
+  --width: 120px;
+
+  z-index: 94;
+  /* height: 100px; */
+  width: var(--width);
+  position: absolute;
+  top: calc(2px + 100%);
+  right: 1.1em;
+  padding: 0;
+  margin: 0;
+  border: 2px solid var(--clr-accent);
+  border-top: none;
+  list-style-type: none;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 100ms ease-in;
+  text-align: center;
+
+
+  background-color: var(--clr-light);
+}
+
+.create-groups-btn:hover ul {
+  transform: scaleY(1);
+}
+
+.create-groups-btn:hover ul li {
+  padding: 1em 0;
+  border-bottom: 2px solid var(--clr-accent);
+}
+
+.create-groups-btn:hover ul li:nth-last-of-type(1) {
+  border: none;
+}
+
+#new-group {
+  background-color: rgb(169, 240, 169);
+}
+
+#new-group a{
+  color: rgba(0, 0, 0, 0.61);
+}
+
+.groups ul {
+  padding: 0;
+  margin: 0;
 }
 
 .group {
@@ -49,9 +123,14 @@ h1 {
   border: 2px solid var(--clr-dark);
 }
 
-.group h2 {
+.group a {
   margin-right: auto;
+  font-size: 1.5em;
   margin-left: 1em;
+  display: flex;
+  align-self: center;
+  padding: 1em 0;
+
 }
 
 .people {
