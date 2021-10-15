@@ -19,11 +19,25 @@
         with recruiters at career fairs.</p>
   </article>
   <section id="about">
+     <img src="src/img/Jac-Logo-red.png" alt="logo">
      <h2>About JAC</h2>
      <p class="jac">
         We are students at Rensselaer Polytechnic Institute taking Web Systems Development. 
-        The team is Alana Barth, Connor Silloway, and Jasmine Filawo.
      </p>
-  </section>   
+  </section>
+  <section id="photos">
+      <div id = "Jasmine-personal">
+        <img src="src/img/jfilawo.jpg" alt="Alana profile picture">
+        <h4>Jasmine Filawo</h4>
+      </div>
+      <div id = "Alana-personal">
+         <img src= "src/img/AlanaBarth.jpg" alt="Alana profile picture">
+         <h4>Alana Barth</h4>
+      </div>
+      <div id = "Connor-personal">
+         <img src="src/img/connor.jpg" alt="Alana profile picture">
+         <h4>Connor Silloway</h4>
+      </div>
+  </section>      
 </body>
 </html>
