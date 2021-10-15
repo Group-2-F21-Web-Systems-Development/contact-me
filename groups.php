@@ -18,7 +18,7 @@
       <ul>
         <li class="new-group"><a href="">+ group</a></li>
         <li><a href="">monkey</a></li>
-        <li><a href="">mommy</a></li>
+        <li><a href="">thing</a></li>
       </ul>
     </button>
     <ul>
