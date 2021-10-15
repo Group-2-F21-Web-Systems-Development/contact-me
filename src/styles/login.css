@@ -1,6 +1,6 @@
 body, html {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("/src/img/lights.jpg");
+  background-image: url("../img/lights.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
