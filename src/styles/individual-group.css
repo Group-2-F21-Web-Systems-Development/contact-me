@@ -1,0 +1,102 @@
+h1 {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.group-info {
+  padding-top: 4em;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* viewport height minus header */
+  min-height: calc(100vh - 5em);
+}
+
+.column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 100%;
+}
+
+img {
+  position: relative;
+  max-width: 50%;
+  max-height: 80%;
+}
+
+.group-info h2 {
+  padding: 0 4em .5em 2em;
+  margin: 0;
+}
+
+.description {
+  margin: 0;
+  padding: 0 4em 0 2em;
+}
+
+.attendies {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.attendies h2 {
+  text-align: center;
+  margin-bottom: 1.5em;
+}
+
+.attendies ul {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 4em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+}
+
+.attendies li {
+  position: relative;
+  height: 6em;
+  width: 18em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.attendies li:after {
+  border-radius: 1em;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  opacity: .2;
+  background-color: var(--clr-accent);
+  z-index: 1;
+}
+
+.attendies li:hover:after {
+  opacity: .4;
+}
+
+.attendies li  * {
+  z-index: 2;
+}
+
+.attendies img {
+  margin-left: 2em;
+  width: 4em;
+  height: 4em;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.attendies a {
+  margin: 0 1em 0 2em;
+}

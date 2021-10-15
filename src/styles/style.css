@@ -79,6 +79,7 @@ header {
   position: sticky;
   z-index: 99;
   height: 5em;
+  border-bottom: solid 2px var(--clr-accent);
 }
 
 header nav {
