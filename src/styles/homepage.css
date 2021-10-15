@@ -24,7 +24,7 @@ section a {
    border-color: black;
 }
 
-#about h1{
+h1, h2 {
    /* heading will be at the center */
    color:black;
    text-align: center;

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./src/styles/homepage.css">
   <link rel="stylesheet" href="./src/styles/style.css">
   <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="  crossorigin="anonymous"></script>
+  <script defer scr="./homepage.js"></script>
   <script defer src="./src/ajax/ajax.js"></script>
 </head>
 <body>
@@ -18,7 +19,7 @@
         with recruiters at career fairs.</p>
   </article>
   <section id="about">
-     <h1>About JAC</h1>
+     <h2>About JAC</h2>
      <p class="jac">
         We are students at Rensselaer Polytechnic Institute taking Web Systems Development. 
         The team is Alana Barth, Connor Silloway, and Jasmine Filawo.
