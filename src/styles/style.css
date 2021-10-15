@@ -22,9 +22,8 @@ body, html {
   width: 100%;
   font-family: 'Cabin', sans-serif;
   background-color: var(--clr-light);
-  color: var(--clr-dark);
+  color: var(--clr-dark)
 }
-
 
 *,
 *::before,
@@ -80,13 +79,7 @@ header {
   position: sticky;
   z-index: 99;
   height: 5em;
-  border: 1px solid #b57edc;
-  border-width: thick;
-  padding: -8em -8em -8em;
-/* background: -webkit-linear-gradient(top left, #6B3CCA, #B68AFF);
-background: -moz-linear-gradient(top left, #6B3CCA, #B68AFF);
-background: linear-gradient(to bottom right, #6B3CCA, #B68AFF); */
-
+  border-bottom: solid 2px var(--clr-accent);
 }
 
 header nav {
@@ -146,4 +139,3 @@ header ul li:nth-of-type(2n) a::after {
   height: var(--height);
   background-color: var(--clr-accent);
 }
-
