@@ -1,0 +1,60 @@
+body, html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/src/img/cloud.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    width: 100%;
+    height: 700px;
+  }
+
+  #bodyBlock {
+    width: 700px;
+    margin: auto;
+    background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%); 
+    font-family: 'Ephesis', cursive;
+  }
+  
+  #bodyBlock h1 {
+    color: white;
+  }
+    /* the textbox where you put in your description  */
+  /* color of the output is blue */
+  #output {
+    margin: 1em 0;
+    color: black;
+    /* background-color:blue; */
+    padding: 1em;
+    border: 1px solid #ddd;
+  }
+  /* where to put the fields */
+  fieldset {
+    padding-top: 1em; 
+    color: white;
+  }
+  .field {
+    width: 120px;
+    margin: 0 0.5em 0.5em 0;
+    float: left;
+    clear: left;
+    text-align: right;
+  }
+  .value {
+    margin: 0 0 0.5em 0;
+  }
+  #save {
+    float: right;
+  }
+  
+  input:focus
+  {
+    background: #fee;
+  }
+  
+  textarea:focus
+  {
+    background: #fee; 
+  }
+  
+  
+  
