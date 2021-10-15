@@ -1,0 +1,28 @@
+article{
+   height: 200px;
+   position: relative;
+}
+article p{
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+section a #aboutUs {
+   display: block;
+}
+
+section a {
+   box-shadow: .5em .5em .4em 0 rgba(66, 60, 60, 0.6);
+   color: black;
+   background-color: rgb(223, 190, 231);
+   padding: .5em;
+   border-style: solid;
+   border-color: black;
+}
+
+section p .jac::before {
+   display:none;
+}
