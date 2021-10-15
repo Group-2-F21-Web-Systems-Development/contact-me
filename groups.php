@@ -24,62 +24,62 @@
     <ul>
       <li class="group">
         <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">
-        <a href="#">RPI Activities Fair</a>
+        <a href="./individual-group.php">RPI Activities Fair</a>
         <p class="people">300 people</p>
       </li>
       <li class="group">
         <img src="./src/img/tree.jpg" alt="photo of Enviornmental Society Meet-up">
-        <a href="#">Enviornmental Society Meet-up</a>
+        <a href="./individual-group.php">Enviornmental Society Meet-up</a>
         <p class="people">95 people</p>
       </li>
       <li class="group">
         <img src="./src/img/golf.jpg" alt="photo of Geiss Country Club Networking Event">
-        <a href="#">Geiss Country Club Networking Event</a>
+        <a href="./individual-group.php">Geiss Country Club Networking Event</a>
         <p class="people">2,000 people</p>
       </li>
       <li class="group">
         <img src="./src/img/monkey.jpg" alt="photo of Monkey Appreciation Club Interest Meeting">
-        <a href="#">Monkey Appreciation Club Interest Meeting</a>
+        <a href="./individual-group.php">Monkey Appreciation Club Interest Meeting</a>
         <p class="people">22 people</p>
       </li>
       <li class="group">
         <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">
-        <a href="#">RPI Activities Fair</a>
+        <a href="./individual-group.php">RPI Activities Fair</a>
         <p class="people">300 people</p>
       </li>
       <li class="group">
         <img src="./src/img/tree.jpg" alt="photo of Enviornmental Society Meet-up">
-        <a href="#">Enviornmental Society Meet-up</a>
+        <a href="./individual-group.php">Enviornmental Society Meet-up</a>
         <p class="people">95 people</p>
       </li>
       <li class="group">
         <img src="./src/img/golf.jpg" alt="photo of Geiss Country Club Networking Event">
-        <a href="#">Geiss Country Club Networking Event</a>
+        <a href="./individual-group.php">Geiss Country Club Networking Event</a>
         <p class="people">2,000 people</p>
       </li>
       <li class="group">
         <img src="./src/img/monkey.jpg" alt="photo of Monkey Appreciation Club Interest Meeting">
-        <a href="#">Monkey Appreciation Club Interest Meeting</a>
+        <a href="./individual-group.php">Monkey Appreciation Club Interest Meeting</a>
         <p class="people">22 people</p>
       </li>
       <li class="group">
         <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">
-        <a href="#">RPI Activities Fair</a>
+        <a href="./individual-group.php">RPI Activities Fair</a>
         <p class="people">300 people</p>
       </li>
       <li class="group">
         <img src="./src/img/tree.jpg" alt="photo of Enviornmental Society Meet-up">
-        <a href="#">Enviornmental Society Meet-up</a>
+        <a href="./individual-group.php">Enviornmental Society Meet-up</a>
         <p class="people">95 people</p>
       </li>
       <li class="group">
         <img src="./src/img/golf.jpg" alt="photo of Geiss Country Club Networking Event">
-        <a href="#">Geiss Country Club Networking Event</a>
+        <a href="./individual-group.php">Geiss Country Club Networking Event</a>
         <p class="people">2,000 people</p>
       </li>
       <li class="group">
         <img src="./src/img/monkey.jpg" alt="photo of Monkey Appreciation Club Interest Meeting">
-        <a href="#">Monkey Appreciation Club Interest Meeting</a>
+        <a href="./individual-group.php">Monkey Appreciation Club Interest Meeting</a>
         <p class="people">22 people</p>
       </li>
     </ul>
