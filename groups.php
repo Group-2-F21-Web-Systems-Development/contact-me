@@ -13,14 +13,14 @@
 <body>
   <section class="groups">
     <h1>View Your Groups</h1>
-    <button class= "create-groups-btn closed">
+    <div class= "create-groups-btn closed">
       <h2>Create</h2>
       <ul>
-        <li class="new-group"><a href="">+ group</a></li>
-        <li><a href="">monkey</a></li>
-        <li><a href="">RPI Activities Fair</a></li>
+        <li id="new-group"><a href="./create-alter-group.php">+ group</a></li>
+        <li><a href="./create-alter-group.php">Monkey Appreciation Club Interest Meeting</a></li>
+        <li><a href="./create-alter-group.php">RPI Activities Fair</a></li>
       </ul>
-    </button>
+    </div>
     <ul>
       <li class="group">
         <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">

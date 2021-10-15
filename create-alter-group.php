@@ -11,10 +11,17 @@
   <script defer src="./src/ajax/ajax.js"></script>
 </head>
 <body>
-  <h1><span>Edit Group:</span> Monkey Apreciation Club Interest Meeting</h1>
-  <form>
-    <label for="description">Description</label>
-    <input id="description" name="description" type="text" placeholder="">
-  </form>
+  <section id="edit-form">
+    <h1><span>Edit Group:</span> Monkey Apreciation Club Interest Meeting</h1>
+    <form>
+      <label for="title">Title</label>
+      <input id="title" name="title" type="text" value="Monkey Apreciation Club Interest Meeting">
+      <label for="description">Description</label>
+      <textarea id="description" name="description" cols="30" rows="10">Some primate species are recognized for their tree-swinging leaps that moved being acrobats to shame! Some monkey species take this “ arm at arm ” technique you may have seen children practicing on that “ monkey bars ” in the yard! Colobus monkeys, unlike other primate species, have hind legs that are much further than their forelimbs, creating for unbelievable leaping power with good velocity. In other words, monkeys are cool so come to our club interest meeting</textarea>
+      <label for="img">Image</label>
+      <input type="file" id="img" name="img" accept="image/*">
+      <button id= "save">Save</button>
+    </form>
+  </section>
 </body>
 </html>
