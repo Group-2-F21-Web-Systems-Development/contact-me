@@ -1,3 +1,7 @@
+#description h1{
+   color:black;
+   text-align: center;
+}
 article{
    height: 200px;
    position: relative;
@@ -10,11 +14,8 @@ article p{
    transform: translate(-50%, -50%);
 }
 
-section a #aboutUs {
-   display: block;
-}
-
 section a {
+   float:right;
    box-shadow: .5em .5em .4em 0 rgba(66, 60, 60, 0.6);
    color: black;
    background-color: rgb(223, 190, 231);
@@ -23,6 +24,15 @@ section a {
    border-color: black;
 }
 
-section p .jac::before {
-   display:none;
+#about h1{
+   /* heading will be at the center */
+   color:black;
+   text-align: center;
 }
+
+#about p{
+   /* heading will be at the center */
+   color:black;
+   text-align: center;
+}
+
