@@ -62,7 +62,6 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
                }
             }
         } else {
-            #echo "did not return 1";
             header("Location: login.php?error=Incorect credentials");
             exit();
     }
