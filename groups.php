@@ -37,7 +37,7 @@
         $stmt = "SELECT * 
                  FROM groups 
                  WHERE created_by = ':uid'
-                 ORDER BY groupid";
+                 ORDER BY groupid DESC";
         $userid = $_SESSION['id'];
         $result->execute(array(':uid' => $userid));
         if ($result->rowCount() > 0) {
@@ -54,7 +54,8 @@
       $stmt = "SELECT groups.title, groups.attendies, groups.photo_location
                FROM groups
                INNER JOIN pairing ON pairing.groupid = groups.groupid
-               WHERE pairing.userid = ':uid'";
+               WHERE pairing.userid = ':uid'
+               ORDER BY groups.groupid DESC";
       $userid = $_SESSION['id'];
       $result->execute(array(':uid' => $userid));
       if ($result->rowCount() > 0) {
