@@ -1,3 +1,8 @@
+<?php 
+  session_start();
+  if (isset($_SESSION['username'])) {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +18,66 @@
 <body>
   <section class="groups">
     <h1>View Your Groups</h1>
+    <?php
+      // connect to database here
+      $conn;
+      $stmt = "SELECT * FROM users WHERE username = ':u'";
+      $user = $conn->prepare($stmt);
+      $username = $_SESSION['username'];
+      $user->execute(array(':u' => $username));
+      $user->fetchAll();
+      // display create/alter group button (only for admin accounts)
+      if ($_SESSION['is_admin']) {
+        echo('<div class= "create-groups-btn closed">
+                <h2>Create</h2>
+                <ul>
+                  <li id="new-group"><a href="./create-alter-group.php?new=true">+ group</a></li>');
+        // MAY NOT BE creted_by AS COLUMN NAME
+        // OR groupid FOR ORDER BY
+        $stmt = "SELECT * 
+                 FROM groups 
+                 WHERE created_by = ':uid'
+                 ORDER BY groupid";
+        $userid = $_SESSION['id'];
+        $result->execute(array(':uid' => $userid));
+        if ($result->rowCount() > 0) {
+          $results = $result->fetchAll();
+          foreach ($results as $group) {
+            $title = $group['title'];
+            echo("<li><a href='./create-alter-group.php?group=$title'>$title</a></li>");
+          }
+        }
+        echo ('</ul> </div>');
+      }
+      // display user's groups
+      // DEFINITELY TEST THIS QUERY
+      $stmt = "SELECT groups.title, groups.attendies, groups.photo_location
+               FROM groups
+               INNER JOIN pairing ON pairing.groupid = groups.groupid
+               WHERE pairing.userid = ':uid'";
+      $userid = $_SESSION['id'];
+      $result->execute(array(':uid' => $userid));
+      if ($result->rowCount() > 0) {
+        echo("<ul>");
+        $results = $result->fetchAll();
+        foreach ($results as $group) {
+          $source = $group['photo_location'];
+          $title = $group['title'];
+          $attendies = $group['attendies'];
+          echo("
+              <li class='group'>
+                <img src='./$source' alt='photo of $title'>
+                <a href='./individual-group.php?group=$title'>$title</a>
+                <p class='people'>$attendies people</p>
+              </li>
+          ");
+        }
+        echo("</ul>");
+      } else {
+        echo("<h2>You should try joining a group!</h2>");
+      }
+      
+    ?>
     <div class= "create-groups-btn closed">
       <h2>Create</h2>
       <ul>
@@ -86,3 +151,10 @@
   </section>
 </body>
 </html>
+
+<?php
+  } else {
+    header("Location: login.php?error=You must be logged in to access the groups page!");
+    exit();
+  }
+?>
