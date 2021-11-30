@@ -96,7 +96,7 @@
           echo("
                 <li>
                   <img src='./$photoLocation' alt='photo of $fname $lname'>
-                  <a href='./personalprofile.php'>$fname $lname</a>
+                  <a href='./personalprofile.php?user=$fname $lname'>$fname $lname</a>
                 </li>
               ");
         }
