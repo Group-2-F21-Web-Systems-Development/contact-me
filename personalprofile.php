@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if (isset($_SESSION['username'])) {
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +20,48 @@
 <div id="bodyBlock">
       <h1>My Profile</h1>
       <!-- image of Jeff Bezos -->
-      <img src="./src/img/jeffb.jpg" alt="Jeff Bezos">
-        <fieldset> 
-            <!-- start of profile page -->
-            <!-- name, contact information of user -->
-          <legend><b>Contact Information</b></legend>
-           <ul>
-                <li> <b>First Name:</b> Jeffrey </li>
-            </ul>
-            <ul>
-                <li><b>Last Name:</b> Bezos</li>
-            </ul>
-            <ul>
-                <li><b>Social Media(s):</b>
-                    Twitter- @JeffBezos
-                    Instagram- @jeffbezos</li>
-            </ul>
-        </fieldset>
+      
+      <?php
+         $dbusername= "root";
+         $dbpassword = "group2websys";
+         
+         $conn = new PDO('mysql:host=localhost;dbname=contactme',$dbusername, $dbpassword);
+         if (!$conn) {
+            echo "Connection failed!";
+         }
+         $username = $_SESSION['username'];
+         $stmt = "SELECT * FROM users WHERE username = ':u'";
+         $results = $conn->prepare($stmt);
+         $results->execute(array(':u' => $username));
+         $results = $results->fetchAll();
+         foreach($results as $user){
+            $source = $user['photo_location'];
+            $firstname = $user['fname'];
+            $lastname = $user['lname'];
+
+            echo(
+               "<fieldset> 
+                     <img src='./$source' alt='photo of $firstname $lastname'>
+                     <!-- start of profile page -->
+                     <!-- name, contact information of user -->
+                  <legend><b>Contact Information</b></legend>
+                  <ul>
+                        <li> <b>First Name:</b>$firstname</li>
+                     </ul>
+                     <ul>
+                        <li><b>Last Name:</b>$lastname</li>
+                     </ul>
+                     <ul>
+                        <li><b>Social Media(s):</b>
+                           Twitter- @JeffBezos
+                           Instagram- @jeffbezos</li>
+                     </ul>
+               </fieldset>
+        ");
+         }
+      ?>
+        
     </div>
 </body>
 </html>
+
