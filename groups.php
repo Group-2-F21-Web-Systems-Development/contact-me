@@ -19,8 +19,15 @@
   <section class="groups">
     <h1>View Your Groups</h1>
     <?php
-      // connect to database here
-      $conn;
+      // connect to databse
+      $dbusername= "root";
+      $dbpassword = "group2websys";
+      
+      $conn = new PDO('mysql:host=localhost;dbname=contactme',$dbusername, $dbpassword);
+      if (!$conn) {
+          echo "Connection failed!";
+      }
+      
       $stmt = "SELECT * FROM users WHERE username = ':u'";
       $user = $conn->prepare($stmt);
       $username = $_SESSION['username'];
@@ -32,8 +39,6 @@
                 <h2>Create</h2>
                 <ul>
                   <li id="new-group"><a href="./create-alter-group.php?new=true">+ group</a></li>');
-        // MAY NOT BE creted_by AS COLUMN NAME
-        // OR groupid FOR ORDER BY
         $stmt = "SELECT * 
                  FROM groups 
                  WHERE created_by = ':uid'
@@ -51,13 +56,21 @@
       }
       // display user's groups
       // DEFINITELY TEST THIS QUERY
-      $stmt = "SELECT groups.title, groups.attendies, groups.photo_location
-               FROM groups
-               INNER JOIN pairing ON pairing.groupid = groups.groupid
-               WHERE pairing.userid = ':uid'
-               ORDER BY groups.groupid DESC";
+      // $stmt = "SELECT groups.title, groups.attendies, groups.photo_location
+      //          FROM groups
+      //          INNER JOIN pairing ON pairing.groupid = groups.groupid
+      //          WHERE pairing.userid = ':uid'
+      //          ORDER BY groups.groupid DESC";
+      $stmt= "SELECT groups.title, groups.description
+              FROM pairing 
+              JOIN groups on pairing.groupid=groups.groupid 
+              JOIN users on pairing.userid=users.userid 
+              where pairing.userid= ':uid'
+              order by groups.groupid";
+
       $userid = $_SESSION['id'];
-      $result->execute(array(':uid' => $userid));
+      $pstmt = $conn->prepare($stmt);
+      $result = $pstmt->execute(array(':uid' => $userid));
       if ($result->rowCount() > 0) {
         echo("<ul>");
         $results = $result->fetchAll();
