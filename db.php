@@ -1,11 +1,3 @@
-<!doctype html>
-<html>
-<head>
-   <title>Lab 8</title>
-   <script type="text/javascript" src="jquery3.6.0.min.js"></script>
-   <link rel="stylesheet" href="style.css">
-</head>
-</html>
 <?php 
 session_start(); 
 
