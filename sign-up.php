@@ -36,3 +36,6 @@
    </div>
 </body>
 </html>
+
+<!-- insert a row -->
+<!-- when signing up, add them into the database -->

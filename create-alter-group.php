@@ -25,3 +25,13 @@
   </section>
 </body>
 </html>
+
+
+<?php if (isset($_GET['group'])) { ?>
+      <!-- only works if the url has error=  -->
+      <!-- text input instead of p tag -->
+      <p class="error"><?php echo $_GET['error']; ?></p>
+    <?php } ?>
+
+<!-- make if statements -->
+<!-- make sure the ids are the same and only change the data that needs to be changed     -->
