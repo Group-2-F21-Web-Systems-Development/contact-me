@@ -24,7 +24,6 @@
       $dbpassword = "group2websys";
       
       $conn = new PDO('mysql:host=localhost;dbname=contactme',$dbusername, $dbpassword, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       if (!$conn) {
           echo "Connection failed!";
       }
@@ -101,76 +100,6 @@
       }
       
     ?>
-    <!-- <div class= "create-groups-btn closed">
-      <h2>Create</h2>
-      <ul>
-        <li id="new-group"><a href="./create-alter-group.php">+ group</a></li>
-        <li><a href="./create-alter-group.php">Monkey Appreciation Club Interest Meeting</a></li>
-        <li><a href="./create-alter-group.php">RPI Activities Fair</a></li>
-      </ul>
-    </div> -->
-    <!-- <ul>
-      <li class="group">
-        <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">
-        <a href="./individual-group.php">RPI Activities Fair</a>
-        <p class="people">300 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/tree.jpg" alt="photo of Enviornmental Society Meet-up">
-        <a href="./individual-group.php">Enviornmental Society Meet-up</a>
-        <p class="people">95 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/golf.jpg" alt="photo of Geiss Country Club Networking Event">
-        <a href="./individual-group.php">Geiss Country Club Networking Event</a>
-        <p class="people">2,000 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/monkey.jpg" alt="photo of Monkey Appreciation Club Interest Meeting">
-        <a href="./individual-group.php">Monkey Appreciation Club Interest Meeting</a>
-        <p class="people">22 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">
-        <a href="./individual-group.php">RPI Activities Fair</a>
-        <p class="people">300 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/tree.jpg" alt="photo of Enviornmental Society Meet-up">
-        <a href="./individual-group.php">Enviornmental Society Meet-up</a>
-        <p class="people">95 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/golf.jpg" alt="photo of Geiss Country Club Networking Event">
-        <a href="./individual-group.php">Geiss Country Club Networking Event</a>
-        <p class="people">2,000 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/monkey.jpg" alt="photo of Monkey Appreciation Club Interest Meeting">
-        <a href="./individual-group.php">Monkey Appreciation Club Interest Meeting</a>
-        <p class="people">22 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">
-        <a href="./individual-group.php">RPI Activities Fair</a>
-        <p class="people">300 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/tree.jpg" alt="photo of Enviornmental Society Meet-up">
-        <a href="./individual-group.php">Enviornmental Society Meet-up</a>
-        <p class="people">95 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/golf.jpg" alt="photo of Geiss Country Club Networking Event">
-        <a href="./individual-group.php">Geiss Country Club Networking Event</a>
-        <p class="people">2,000 people</p>
-      </li>
-      <li class="group">
-        <img src="./src/img/monkey.jpg" alt="photo of Monkey Appreciation Club Interest Meeting">
-        <a href="./individual-group.php">Monkey Appreciation Club Interest Meeting</a>
-        <p class="people">22 people</p>
-      </li>
-    </ul> -->
   </section>
 </body>
 </html>
