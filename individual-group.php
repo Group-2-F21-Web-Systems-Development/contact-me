@@ -1,6 +1,6 @@
 <?php 
-  // session_start();
-  // if (isset($_SESSION['username'])) {
+  session_start();
+  if (isset($_SESSION['username'])) {
 ?>
 
 <!DOCTYPE html>
@@ -23,115 +23,95 @@
   <script defer src="./src/ajax/ajax.js"></script>
 </head>
 <body>
+  <?php
+    // connect to databse
+    $dbusername= "root";
+    $dbpassword = "group2websys";
+    
+    $conn = new PDO('mysql:host=localhost;dbname=contactme',$dbusername, $dbpassword, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    if (!$conn) {
+      echo "Connection failed!";
+    }
+
+    // find group
+    $stmt= "SELECT * 
+            FROM groups
+            WHERE title = :title";
+    $group = $conn->prepare($stmt);
+    $group->execute(array(':title' => $title));
+    if ($group->rowCount() === 0) {
+      // group not found
+      // error with query string or user altered query string
+      echo("$title does not exist as a group");
+    } else {
+      // check if user should have access to this group page
+      $userid = $_SESSION['id'];
+      $stmt= "SELECT *
+              FROM pairing
+              WHERE userid = :userID";
+      $pstmt = $conn->prepare($stmt);
+      $pstmt->execute(array(':userID' => $userid));
+      if ($pstmt->rowCount() === 0) {
+        // group exists, but user is not in the group
+        echo("You do not have access to this group");
+      } else {
+
+      // display all group information
+      $group = $group->fetch();
+      $description = $group['description'];
+      $photoLocation = $group['photo_location'];
+      $description = $group['description'];
+      $groupid = $group['groupid'];
+  ?>
   <section class="group-info">
     <div class="column">
-      <img src="./src/img/monkey.jpg" alt="photo of Monkey Appreciation Club Interest Meeting">
-      <h1>Monkey Appreciation Club Interest Meeting</h1>
+      <img src="./<?php echo($photoLocation); ?>" alt="photo of <?php echo($title); ?>">
+      <h1><?php echo($title); ?></h1>
     </div>
     <div class="column">
       <h2>Description</h2>
-      <p class="description">Some primate species are recognized for their tree-swinging leaps that moved being acrobats to shame! Some monkey species take this “ arm at arm ” technique you may have seen children practicing on that “ monkey bars ” in the yard! Colobus monkeys, unlike other primate species, have hind legs that are much further than their forelimbs, creating for unbelievable leaping power with good velocity. In other words, monkeys are cool so come to our club interest meeting</p>
+      <p class="description"><?php echo($description); ?></p>
     </div>
   </section>
   <section class="attendies">
     <h2>Attendies</h2>
-    <ul>
-      <li>
-        <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Lorem, ipsum.</a>
-      </li>
-      <li>
-        <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Voluptatum, porro.</a>
-      </li>
-      <li>
-        <img src="./src/img/plotka.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Voluptas, assumenda?</a>
-      </li>
-      <li>
-        <img src="./src/img/chair-amc.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Labore, velit.</a>
-      </li>
-      <li>
-        <img src="./src/img/munasinghe.png" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Recusandae, beatae.</a>
-      </li>
-      <li>
-        <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Repellat, autem!</a>
-      </li>
-      <li>
-        <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Animi, dolore.</a>
-      </li>
-      <li>
-        <img src="./src/img/plotka.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Vero, velit.</a>
-      </li>
-      <li>
-        <img src="./src/img/chair-amc.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Unde, atque?</a>
-      </li>
-      <li>
-        <img src="./src/img/munasinghe.png" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Voluptate, non.</a>
-      </li>
-      <li>
-        <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Debitis, officia!</a>
-      </li>
-      <li>
-        <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Dolor, possimus!</a>
-      </li>
-      <li>
-        <img src="./src/img/plotka.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Modi, expedita?</a>
-      </li>
-      <li>
-        <img src="./src/img/chair-amc.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Iure, eum.</a>
-      </li>
-      <li>
-        <img src="./src/img/munasinghe.png" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Repellendus, similique.</a>
-      </li>
-      <li>
-        <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Debitis, cumque?</a>
-      </li>
-      <li>
-        <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Quam, natus!</a>
-      </li>
-      <li>
-        <img src="./src/img/plotka.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Animi, quis?</a>
-      </li>
-      <li>
-        <img src="./src/img/chair-amc.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Earum, et!</a>
-      </li>
-      <li>
-        <img src="./src/img/munasinghe.png" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Inventore, tempora!</a>
-      </li>
-      <li>
-        <img src="./src/img/grill.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Minus, quo.</a>
-      </li>
-      <li>
-        <img src="./src/img/callahan.jpg" alt="attendee of Monkey Appreciation Club Interest Meeting">
-        <a href="./personalprofile.php">Minus, aliquam?</a>
-      </li>
-    </ul>
+    <?php
+      $stmt= "SELECT users.photo_location, users.fname, users.lname 
+              FROM users
+              INNER JOIN pairing ON pairing.userid = users.userid
+              WHERE pairing.groupid = :groupID
+              ORDER BY users.fname, users.lname";
+      $users = $conn->prepare($stmt);
+      $users->execute(array(':groupID' => $groupid));
+      if ($users->rowCount() === 0) {
+        echo("There are no users in this group yet!");
+      } else {
+        echo("<ul>");
+        foreach ($users as $user) {
+          $fname = $user['fname'];
+          $lname = $user['lname'];
+          $photoLocation = $user['photo_location'];
+
+          echo("
+                <li>
+                  <img src='./$photoLocation' alt='photo of $fname $lname'>
+                  <a href='./personalprofile.php?user=$fname $lname'>$fname $lname</a>
+                </li>
+              ");
+        }
+        echo("</ul>");
+      }
+    ?>
   </section>
 </body>
 </html>
 
 <?php
-  // } else {
-  //   header("Location: login.php?error=You must be logged in to access the groups page!");
-  //   exit();
-  // }
+      }
+    }
+  } else {
+    header("Location: login.php?error=You must be logged in to access the groups page!");
+    exit();
+  }
 ?>
