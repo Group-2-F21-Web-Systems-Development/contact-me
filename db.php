@@ -45,7 +45,7 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
                   $_SESSION['links'] = $row['links'];
                   $_SESSION['is_admin'] = $row['is_admin'];
                   $_SESSION['photo_location'] = $row['photo_location'];
-                  $_SESSION['id'] = $row['id'];
+                  $_SESSION['id'] = $row['userid'];
                   header("Location: personalprofile.php");
                   exit();
                } else {
