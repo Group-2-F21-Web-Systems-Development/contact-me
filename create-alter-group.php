@@ -17,6 +17,9 @@
   if (isset($_GET['group'])){
     // user is accessing a group that already exists 
     $title=$_GET['group'];
+    $sql_insert_group = "INSERT INTO groups (title, description)
+    VALUES ($title, '$description');";
+
     // look for anything to write sql commands that is looking for the group, specified from the title
     // save the information into php variables and display onto the form/website
     // ask the database for the group with that title 
