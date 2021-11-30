@@ -28,9 +28,9 @@
             <label for="username">Username:</label>
             <div class="value"><input name="username" id="username" type="text"></div>
             <label for="password">Password:</label>
-            <div class="value"><input name="password" id="password" type="text"></div>
+            <div class="value"><input name="password" id="password" type="password"></div>
             <label for="confirm">Confirm Password:</label>
-            <div class="value"><input name="confirm" id="confirm" type="text"></div>
+            <div class="value"><input name="confirm" id="confirm" type="password"></div>
           </div>
           <button type="submit">Sign Up</button>
         </fieldset>
