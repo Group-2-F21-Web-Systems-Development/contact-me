@@ -23,7 +23,8 @@
       $dbusername= "root";
       $dbpassword = "group2websys";
       
-      $conn = new PDO('mysql:host=localhost;dbname=contactme',$dbusername, $dbpassword);
+      $conn = new PDO('mysql:host=localhost;dbname=contactme',$dbusername, $dbpassword, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       if (!$conn) {
           echo "Connection failed!";
       }
@@ -41,10 +42,11 @@
                   <li id="new-group"><a href="./create-alter-group.php?new=true">+ group</a></li>');
         $stmt = "SELECT * 
                  FROM groups 
-                 WHERE created_by = ':uid'
+                 WHERE created_by = :userid
                  ORDER BY groupid DESC";
         $userid = $_SESSION['id'];
-        $result->execute(array(':uid' => $userid));
+        $result = $conn->prepare($stmt);
+        $result->execute(array(':userid' => $userid));
         if ($result->rowCount() > 0) {
           $results = $result->fetchAll();
           foreach ($results as $group) {
@@ -55,34 +57,41 @@
         echo ('</ul> </div>');
       }
       // display user's groups
-      // DEFINITELY TEST THIS QUERY
-      // $stmt = "SELECT groups.title, groups.attendies, groups.photo_location
-      //          FROM groups
-      //          INNER JOIN pairing ON pairing.groupid = groups.groupid
-      //          WHERE pairing.userid = ':uid'
-      //          ORDER BY groups.groupid DESC";
-      $stmt= "SELECT groups.title, groups.description
-              FROM pairing 
-              JOIN groups on pairing.groupid=groups.groupid 
-              JOIN users on pairing.userid=users.userid 
-              where pairing.userid= ':uid'
-              order by groups.groupid";
+      $stmt = "SELECT groups.title, groups.photo_location, groups.groupid
+                FROM groups
+                INNER JOIN pairing ON pairing.groupid = groups.groupid
+                WHERE pairing.userid = :userID
+                ORDER BY groups.groupid DESC";
 
       $userid = $_SESSION['id'];
-      $pstmt = $conn->prepare($stmt);
-      $result = $pstmt->execute(array(':uid' => $userid));
+      $result = $conn->prepare($stmt);
+      $result->execute(array(':userID' => $userid));
+      // $result = $conn->query($stmt);
       if ($result->rowCount() > 0) {
         echo("<ul>");
         $results = $result->fetchAll();
         foreach ($results as $group) {
           $source = $group['photo_location'];
           $title = $group['title'];
-          $attendies = $group['attendies'];
+          $groupID = $group['groupid'];
+          
+          $stmt= "SELECT count(userid) as attendies
+                  FROM pairing
+                  WHERE groupid = :grID";
+          $pstmt = $conn->prepare($stmt);
+          $pstmt->execute(array(':grID' => $groupID));
+          $result = $pstmt->fetchAll();
+          $attendies = $result[0]['attendies'];
+          if ($attendies == 1) {
+            $attendies = "1 person";
+          } else {
+            $attendies = $attendies . " people";
+          }
           echo("
               <li class='group'>
                 <img src='./$source' alt='photo of $title'>
                 <a href='./individual-group.php?group=$title'>$title</a>
-                <p class='people'>$attendies people</p>
+                <p class='people'>$attendies</p>
               </li>
           ");
         }
@@ -92,15 +101,15 @@
       }
       
     ?>
-    <div class= "create-groups-btn closed">
+    <!-- <div class= "create-groups-btn closed">
       <h2>Create</h2>
       <ul>
         <li id="new-group"><a href="./create-alter-group.php">+ group</a></li>
         <li><a href="./create-alter-group.php">Monkey Appreciation Club Interest Meeting</a></li>
         <li><a href="./create-alter-group.php">RPI Activities Fair</a></li>
       </ul>
-    </div>
-    <ul>
+    </div> -->
+    <!-- <ul>
       <li class="group">
         <img src="./src/img/activities_fair.jpg" alt="photo of RPI Activities Fair">
         <a href="./individual-group.php">RPI Activities Fair</a>
@@ -161,7 +170,7 @@
         <a href="./individual-group.php">Monkey Appreciation Club Interest Meeting</a>
         <p class="people">22 people</p>
       </li>
-    </ul>
+    </ul> -->
   </section>
 </body>
 </html>
