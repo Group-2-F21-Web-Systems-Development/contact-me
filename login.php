@@ -13,22 +13,19 @@
 <body>
 <div id="bodyBlock">
       <h1>Please Login</h1>
-      <form id="addForm" name="addForm" action="#" method="post" onsubmit="return validate(this);">
+      <form id="addForm" name="addForm" action="db.php" method="post">
         <fieldset> 
           <legend>Contact Information</legend>
           <div class="formData">
                          <!-- labels of the fields -->
                          <!-- when you click on the label you can type in the field -->
-            <label for="firstName">First Name:</label>
-            <div class="value"><input type="text" size="60" value="" name="firstName" id="firstName"/></div>
-          
-            <label for="lastName">Last Name:</label>
-            <div class="value"><input type="text" size="60" value="" name="lastName" id="lastName"/></div>
+            <label for="username">username:</label>
+            <div class="value"><input type="text" size="60" value="" name="username" id="username"/></div>
             
             <label for="title">Password:</label>
-            <div class="value"><input type="text" size="60" value="" name="title" id="title"/></div>
+            <div class="value"><input type="text" size="60" value="" name="pass" id="pass"/></div>
           </div>
-          <button onclick="clickMe()">LOGIN</button>
+          <button type="submit">LOGIN</button>
         </fieldset>
       </form>
     </div>
