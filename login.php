@@ -23,7 +23,7 @@
             <div class="value"><input type="text" size="60" value="" name="username" id="username"/></div>
             
             <label for="title">Password:</label>
-            <div class="value"><input type="text" size="60" value="" name="pass" id="pass"/></div>
+            <div class="value"><input type="password" size="60" value="" name="pass" id="pass"/></div>
           </div>
           <button type="submit">LOGIN</button>
         </fieldset>
