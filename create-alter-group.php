@@ -27,11 +27,30 @@
 </html>
 
 
-<?php if (isset($_GET['group'])) { ?>
+<?php if (isset($_GET['new'])) { ?>
+  $title=$_GET['new'];
+  $description=$_GET['new'];
+  header("Location: create-alter-group.php?new=Fill in title and description");
+  
+  // echo "Changes saved!"
+};
+
+<?php } ?>
+      <!-- only works if the url has error=  -->
+      <!-- text input instead of p tag -->
+      <input class="new"><?php echo $_GET['new']; ?></p>
+
+    <?php if (isset($_GET['new'])) { ?>
+      $title=$_GET['new'];
+  $description=$_GET['new'];
+  header("Location: create-alter-group.php?new=Fill in title and description");
+
       <!-- only works if the url has error=  -->
       <!-- text input instead of p tag -->
       <p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
+
+
 
 <!-- make if statements -->
 <!-- make sure the ids are the same and only change the data that needs to be changed     -->
