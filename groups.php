@@ -28,7 +28,7 @@
           echo "Connection failed!";
       }
       
-      $stmt = "SELECT * FROM users WHERE username = ':u'";
+      $stmt = "SELECT * FROM users WHERE username = :u";
       $user = $conn->prepare($stmt);
       $username = $_SESSION['username'];
       $user->execute(array(':u' => $username));
