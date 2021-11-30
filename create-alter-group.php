@@ -17,8 +17,29 @@
   if (isset($_GET['group'])){
     // user is accessing a group that already exists 
     $title=$_GET['group'];
-    $sql_insert_group = "INSERT INTO groups (title, description)
-    VALUES ($title, '$description');";
+    // groups is table and title is a column from groups table 
+    $stmt= "SELECT * FROM groups WHERE title = :title";
+    $group = $conn->prepare($stmt);
+    //title is coming from the url from the individual-group.php
+    $group ->execute(array(':title' => $title));
+    if ($group->rowCount() === 0) {
+      echo 'This group does not exist';
+    }
+    else{
+      $group = $group->fetch();
+      // code for if the the row returns
+      // fix lines 32-35
+      // $description = $group['description'];
+      // $photoLocation = $group['photo_location'];
+      // $description = $group['description'];
+      // $groupid = $group['groupid'];
+
+    }
+
+
+
+
+    
 
     // look for anything to write sql commands that is looking for the group, specified from the title
     // save the information into php variables and display onto the form/website
@@ -90,6 +111,8 @@
   </section>
 </body>
 </html>
+
+// make sure all of the data is saved into the sql 
 
 // put php after the document 
 
