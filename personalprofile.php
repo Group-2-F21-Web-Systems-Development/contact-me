@@ -82,7 +82,7 @@
             $username = $user['username'];
             $editBtn = '';
             if ($user['userid'] == $_SESSION['id']) {
-               $heading = "My Profile";
+               $heading = "My Profile ($username)";
                $editBtn = "<a id='edit-profile' href='./profile.php?user=$username'>edit</a>";
             } else {
                $heading = "$username's Profile";
