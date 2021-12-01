@@ -76,5 +76,8 @@ body, html {
     background: #fee; 
   }
   
-  
+  #edit-profile {
+    text-align: center;
+    margin-top: -1em;
+  }
   

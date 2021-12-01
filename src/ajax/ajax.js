@@ -7,9 +7,11 @@ $(document).ready(function() { // after everything in html loads
     success: function(responseData, status) {
       // acquire php session super global as json object
       var sessionExists = 0;
+      var username;
       $.ajaxSetup({cache: false, async: false})
       $.get('./src/ajax/getsession.php', function (data) {
         jsObj =  JSON.parse(data);
+        username = jsObj['username'];
         if (!(Object.keys(jsObj).length === 0)) {
           sessionExists = 1;
         }
@@ -22,14 +24,15 @@ $(document).ready(function() { // after everything in html loads
         li = document.createElement("li");
         // create anchor tags nested in li with text and href
         a = document.createElement("a");
-        if ( i === 3 && sessionExists === 1) {
-          // login
-
+        if ( i === 2 && sessionExists === 1) {
+          // profile page
+          a.append(Object.keys(liEl));
+          a.setAttribute("href", Object.values(liEl) + "?user=" + username);
         } else if ( i === 4 && sessionExists === 1) {
           // signup
           a.append("Logout");
           a.setAttribute("href", "./src/ajax/logout.php");
-        } else {
+        } else if (i != 3 || !(sessionExists === 1)) {
           a.append(Object.keys(liEl));
           a.setAttribute("href", Object.values(liEl));
         }
