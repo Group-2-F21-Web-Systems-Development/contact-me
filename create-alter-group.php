@@ -31,7 +31,7 @@
       $photoLocation = $group['photo_location'];
       // do I need a groupid?
       // $groupid = $group['groupid'];
-      // allowing users to make changes
+      // allowing users to make changes and creating a new group -->
     if (isset($_GET['new']) && $_GET['new']==='true')  { 
 
 ?>
@@ -63,11 +63,10 @@
   <!-- // true is coming from groups.php and it is getting the url from line 41 -->
     <!-- // write in the specific fields (monkeys)
     // user is creating a new group, which is inserting a new row into the database 
-    // creating a new group -->
 
 
 
-    <!-- // connecting to database -->
+    // connecting to database -->
     <!-- $title=mysqli_real_escape_string($conn, $_GET['new']);
     $description=mysqli_real_escape_string($conn, $_GET['new']);
 
