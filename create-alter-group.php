@@ -10,10 +10,7 @@
             echo "Connection failed!";
         }
   
-        // <!-- only works if the url has error=  -->
-        // <!-- text input instead of p tag -->
         // <!-- user is creating a new group -->
-        // true is coming from groups.php and it is getting the url from line 41
   if (isset($_GET['group'])){
     // user is accessing a group that already exists 
     $title=$_GET['group'];
@@ -26,13 +23,30 @@
       echo 'This group does not exist';
     }
     else{
+      // fetch means getting the data  
       $group = $group->fetch();
       // code for if the the row returns
-      // fix lines 32-35
-      // $description = $group['description'];
-      // $photoLocation = $group['photo_location'];
-      // $description = $group['description'];
+      // fix lines 30-33
+      $description = $group['description'];
+      $photoLocation = $group['photo_location'];
+      // do I need a groupid?
       // $groupid = $group['groupid'];
+      // allowing users to make changes
+    if (isset($_GET['new']) && $_GET['new']==='true')  { 
+
+?>
+      <section class="group-info">
+      <div class="column">
+        <img src="./<?php echo($photoLocation); ?>" alt="photo of <?php echo($title); ?>">
+        <h1><?php echo($title); ?></h1>
+      </div>
+      <div class="column">
+        <h2>Description</h2>
+        <p class="description"><?php echo($description); ?></p>
+      </div>
+    </section>
+
+
 
     }
 
@@ -41,22 +55,20 @@
 
     
 
-    // look for anything to write sql commands that is looking for the group, specified from the title
+    <!-- // look for anything to write sql commands that is looking for the group, specified from the title
     // save the information into php variables and display onto the form/website
     // ask the database for the group with that title 
-    // look at lab 7 (look at the README)
+    // look at lab 7 (look at the README) -->
   }
-  if (isset($_GET['new']) && $_GET['new']==='true')  { 
-    // write in the specific fields (monkeys)
+  <!-- // true is coming from groups.php and it is getting the url from line 41 -->
+    <!-- // write in the specific fields (monkeys)
     // user is creating a new group, which is inserting a new row into the database 
-    // creating a new group
-    $title='';
-    $description='';
+    // creating a new group -->
 
 
 
-    // connecting to database
-    $title=mysqli_real_escape_string($conn, $_GET['new']);
+    <!-- // connecting to database -->
+    <!-- $title=mysqli_real_escape_string($conn, $_GET['new']);
     $description=mysqli_real_escape_string($conn, $_GET['new']);
 
     // create sql
@@ -74,9 +86,9 @@
     else{
       echo "Changes not saved!".mysqli_error($conn);
     }
-
-      // <!-- only works if the url has error=  -->
-      // <!-- text input instead of p tag -->
+ -->
+      <!-- text input instead of p tag -->
+      <!-- text input instead of p tag -->
  <input class="new"><?php echo $_GET['new']; ?></input>
 
     <?php } ?>
