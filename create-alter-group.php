@@ -10,7 +10,6 @@
             echo "Connection failed!";
         }
   
-        // <!-- user is creating a new group -->
   if (isset($_GET['group'])){
     // user is accessing a group that already exists 
     $title=$_GET['group'];
@@ -19,6 +18,7 @@
     $group = $conn->prepare($stmt);
     //title is coming from the url from the individual-group.php
     $group ->execute(array(':title' => $title));
+  }
     if ($group->rowCount() === 0) {
       echo 'This group does not exist';
     }
@@ -29,10 +29,17 @@
       // fix lines 30-33
       $description = $group['description'];
       $photoLocation = $group['photo_location'];
-      // do I need a groupid?
+            // do I need a groupid?
       // $groupid = $group['groupid'];
+
+    }
       // allowing users to make changes and creating a new group -->
-    if (isset($_GET['new']) && $_GET['new']==='true')  { 
+    if (isset($_GET['new']) && $_GET['new']==='true')  {
+      $sql_insert_group="INSERT INTO groups(title, description) VALUES('$title,'$description');"
+      $result = $conn->query( $sql_insert_group);
+
+     }
+
 
 ?>
       <section class="group-info">
@@ -123,9 +130,9 @@
 </body>
 </html>
 
-// make sure all of the data is saved into the sql 
+<!-- // make sure all of the data is saved into the sql  -->
 
-// put php after the document 
+<!-- // put php after the document  -->
 
 
 
@@ -133,5 +140,5 @@
 
 
 
-// <!-- make if statements -->
-// <!-- make sure the ids are the same and only change the data that needs to be changed     -->
+<!-- // make if statements -->
+<!-- // make sure the ids are the same and only change the data that needs to be changed     -->

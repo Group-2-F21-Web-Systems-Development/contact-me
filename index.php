@@ -14,7 +14,7 @@
 <body>
   <article class = "description">
      <h1>About Contact Me</h1>
-     <p>Business cards are a thing of the past. Contact Me is an quick, easy way to connect with new people. We put a focus on networking at events. 
+     <p>Business cards are a thing of the past. Contact Me is a quick, easy way to connect with new people. We put a focus on networking at events. 
         Our groups system for events makes it easier for people to connect with others that attend the event. It makes it easier for students to connect
         with recruiters at career fairs.</p>
   </article>
