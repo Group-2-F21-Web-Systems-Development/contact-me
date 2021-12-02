@@ -46,7 +46,8 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
                   $_SESSION['is_admin'] = $row['is_admin'];
                   $_SESSION['photo_location'] = $row['photo_location'];
                   $_SESSION['id'] = $row['userid'];
-                  header("Location: personalprofile.php");
+                  $username = $row['username'];
+                  header("Location: personalprofile.php?user=$username");
                   exit();
                } else {
                   header("Location: login.php?error=Incorect credentials");
