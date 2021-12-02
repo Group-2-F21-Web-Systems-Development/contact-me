@@ -47,22 +47,30 @@
     } else {
       // check if user should have access to this group page
       $userid = $_SESSION['id'];
-      $stmt= "SELECT *
-              FROM pairing
-              WHERE userid = :userID";
-      $pstmt = $conn->prepare($stmt);
-      $pstmt->execute(array(':userID' => $userid));
-      if ($pstmt->rowCount() === 0) {
-        // group exists, but user is not in the group
-        echo("You do not have access to this group");
-      } else {
-
-      // display all group information
       $group = $group->fetch();
       $description = $group['description'];
       $photoLocation = $group['photo_location'];
       $description = $group['description'];
       $groupid = $group['groupid'];
+      $createdBy = $group['created_by'];
+
+      $stmt= "SELECT *
+              FROM pairing
+              WHERE userid = :userID AND groupid = :gID";
+      $pstmt = $conn->prepare($stmt);
+      $pstmt->execute(array(':userID' => $userid, ':gID' => $groupid));
+      if ($pstmt->rowCount() === 0) {
+        // group exists, but user is not in the group
+        echo("You do not have access to this group");
+      } else {
+        // check if user should be able to leave the group
+        $canLeave = 1;
+        if ($userid === $createdBy) {
+          // this user created the group, they can't leave!
+          $canLeave = 0;
+        }
+
+        // display all group information
   ?>
   <section class="group-info">
     <div class="column">
@@ -77,6 +85,13 @@
   <section class="attendies">
     <h2>Attendies</h2>
     <?php
+      if ($canLeave === 1) {
+    ?>
+    <form id="leave-group" action="remove-user.php?group=<?php echo $groupid; ?>" method="post">
+      <input type="submit" id="leave-btn" value="leave group">
+    </form>
+    <?php
+      }
       $stmt= "SELECT users.photo_location, users.fname, users.lname 
               FROM users
               INNER JOIN pairing ON pairing.userid = users.userid
