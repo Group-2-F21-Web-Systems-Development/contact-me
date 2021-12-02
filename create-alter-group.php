@@ -17,10 +17,11 @@
     $stmt= "SELECT * FROM groups WHERE title = :title";
     $group = $conn->prepare($stmt);
     //title is coming from the url from the individual-group.php
-    $group ->execute(array(':title' => $title));
-  }
+    $group->execute(array(':title' => $title));
+  
     if ($group->rowCount() === 0) {
       echo 'This group does not exist';
+      exit();
     }
     else{
       // fetch means getting the data  
@@ -35,11 +36,11 @@
     }
       // allowing users to make changes and creating a new group -->
     if (isset($_GET['new']) && $_GET['new']==='true')  {
-      $sql_insert_group="INSERT INTO groups(title, description) VALUES('$title,'$description');"
+      $sql_insert_group="INSERT INTO groups(title, description) VALUES($title,$description)";
       $result = $conn->query( $sql_insert_group);
 
      }
-
+  }
 
 ?>
       <section class="group-info">
@@ -95,9 +96,8 @@
  -->
       <!-- text input instead of p tag -->
       <!-- text input instead of p tag -->
- <input class="new"><?php echo $_GET['new']; ?></input>
+ <!-- <input class="new"><?php echo $_GET['new']; ?></input>
 
-    <?php } ?>
 
 
 
