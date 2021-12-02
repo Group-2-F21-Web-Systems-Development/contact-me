@@ -100,3 +100,21 @@ img {
 .attendies a {
   margin: 0 1em 0 2em;
 }
+
+#leave-group {
+  position: absolute;
+  right: 25%;
+  transform: translateX(50%);
+  margin-top: .8em;
+}
+
+#leave-btn {
+  width: 10em;
+  height: 4em;
+  border: 2px solid var(--clr-accent);
+  border-radius: 100vw;
+  cursor: pointer;
+  background-color: rgba(255, 58, 58, 0.479);
+  color: black;
+  text-align: center;
+}
