@@ -45,7 +45,7 @@
 <body>
 <div id="bodyBlock">
       <h1>Edit Your Profile (<?php echo ($username); ?>)</h1>
-      <form id="addForm" name="addForm" action="update-user.php?user=<?php echo ($username); ?>" method="post">
+      <form id="addForm" name="addForm" action="update-user.php" method="post" enctype="multipart/form-data">
         <fieldset> 
           <legend>Contact Information</legend>
           <div class="formData">
@@ -54,6 +54,8 @@
           
             <label for="lastName">Last Name:</label>
             <div class="value"><input type="text" size="60" value="<?php echo ($lname); ?>" name="lastName" id="lastName"/></div>
+            
+            
             
             <label>Social Media(s):</label>
             <button id="new-media" type="button">+</button>
@@ -74,7 +76,8 @@
               ?>
               
             </div>
-            <p>anything without an @ first is considered to be a link</p>
+            <label for="img">Image</label>
+            <input type="file" id="img" name="img" accept="image/*">
             <input type="submit" value="save" id="save" name="save"/></div>
         </fieldset>
       </form>
