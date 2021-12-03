@@ -53,6 +53,7 @@
       $description = $group['description'];
       $groupid = $group['groupid'];
       $createdBy = $group['created_by'];
+      $groupPassword = $group['group_password'];
 
       $stmt= "SELECT *
               FROM pairing
@@ -73,6 +74,13 @@
         // display all group information
   ?>
   <section class="group-info">
+    <?php 
+      if (!$canLeave) {
+        // user owns this group
+        // show group password
+        echo("<p id='group-password'><span>group password</span>: $groupPassword</p>"); 
+      }
+    ?>
     <?php
       if (!$canLeave) {
         // user owns this group

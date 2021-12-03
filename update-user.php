@@ -74,8 +74,8 @@ if (isset($_SESSION['username'])) {
 
   // change user row
   $stmt= "UPDATE users
-        SET fname = :fname, lname = :lname, links = :links
-        WHERE userid = :userID";
+          SET fname = :fname, lname = :lname, links = :links
+          WHERE userid = :userID";
   $stmt = $conn->prepare($stmt);
   $stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':links' => $links, ':userID' => $userID));
 

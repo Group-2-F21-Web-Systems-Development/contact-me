@@ -14,7 +14,7 @@ h1 span {
 
 form {
   width: 700px;
-  margin-top: 3em;
+  margin-top: 0;
   position: relative;
   padding: 2em;
   margin-bottom: 4em;
@@ -78,4 +78,24 @@ input:focus, input:hover, #description:hover, #description:focus {
   color: var(--clr-accent);
   text-align: center;
   align-self: center;
+}
+
+#group-password {
+  position: relative;
+  left: 420px;
+  top: -58px;
+  font-size: 15px;
+}
+
+#group-password span {
+  font-weight: bold;
+  /* text-decoration: underline; */
+  border-bottom: 2px solid var(--clr-accent);
+}
+
+#error {
+  position: absolute;
+  top: -4em;
+  left: 17em;
+  color: rgb(230, 107, 107);
 }
