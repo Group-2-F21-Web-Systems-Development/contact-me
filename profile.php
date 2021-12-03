@@ -45,7 +45,7 @@
 <body>
 <div id="bodyBlock">
       <h1>Edit Your Profile (<?php echo ($username); ?>)</h1>
-      <form id="addForm" name="addForm" action="update-user.php" method="post">
+      <form id="addForm" name="addForm" action="update-user.php?user=<?php echo ($username); ?>" method="post">
         <fieldset> 
           <legend>Contact Information</legend>
           <div class="formData">
