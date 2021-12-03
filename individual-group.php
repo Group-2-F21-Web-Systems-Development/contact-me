@@ -73,6 +73,14 @@
         // display all group information
   ?>
   <section class="group-info">
+    <?php
+      if (!$canLeave) {
+        // user owns this group
+        // display edit button so user can edit group
+        echo('<div id="edit-groups-btn">
+                <a href="./create-alter-group.php?group=' . $title . '">Edit</a></div>');
+      }
+    ?>
     <div class="column">
       <img src="./<?php echo($photoLocation); ?>" alt="photo of <?php echo($title); ?>">
       <h1><?php echo($title); ?></h1>
