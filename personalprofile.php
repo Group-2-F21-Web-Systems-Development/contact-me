@@ -92,7 +92,7 @@
                "
                <h1>$heading</h1> $editBtn
                <fieldset> 
-                     <div id='img-container'><img src='./$source' alt='photo of $firstname $lastname'></div>
+                     <img src='./$source' alt='photo of $firstname $lastname'>
                      <!-- start of profile page -->
                      <!-- name, contact information of user -->
                   <legend><b>Contact Information</b></legend>

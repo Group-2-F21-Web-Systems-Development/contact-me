@@ -23,18 +23,9 @@ body, html {
     display: flex;
     flex-direction: column;
   }
-
-  #img-container {
-    width:200px;
-    height:200px;
-    overflow: hidden;
-    border: 1px solid indigo;
-    border-width: thick;
-    border-style: outset;
-  }
   
   #bodyBlock img {
-      transform: translate(-15px, -15px);
+      /* transform: translate(-15px, -15px); */
 
       /* --height: 200px;
       height: calc(.8 * var(--height));
@@ -45,6 +36,11 @@ body, html {
       object-fit: cover; */
       width:230px;
       height:230px;
+      /* width: 4em;
+      height: 4em; */
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center;
   }
 
   #bodyBlock h1 {
