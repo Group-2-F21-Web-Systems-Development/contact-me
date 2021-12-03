@@ -91,7 +91,7 @@
     </div>
   </section>
   <section class="attendies">
-    <h2>Attendies</h2>
+    <h2>Attendees</h2>
     <?php
       if ($canLeave === 1) {
     ?>
