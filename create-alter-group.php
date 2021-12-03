@@ -89,7 +89,7 @@
 <body>
   <section id="edit-form">
     <h1>Create <span>New</span> Group</h1>
-    <form method="post" action="update-group.php?new=true">
+    <form method="post" action="update-group.php?new=true" enctype="multipart/form-data">
       <?php if (isset($_GET['error'])) { echo "<p id='error-new'>" . $_GET['error'] . "</p>"; } ?>
       <label for="title">Title</label>
       <input id="title" name="title" type="text" value="">
