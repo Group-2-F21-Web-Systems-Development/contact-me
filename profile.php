@@ -55,8 +55,7 @@
             <label for="lastName">Last Name:</label>
             <div class="value"><input type="text" size="60" value="<?php echo ($lname); ?>" name="lastName" id="lastName"/></div>
             
-            <label for="img">Image</label>
-            <input type="file" id="img" name="img" accept="image/*">
+            
             
             <label>Social Media(s):</label>
             <button id="new-media" type="button">+</button>
@@ -77,6 +76,8 @@
               ?>
               
             </div>
+            <label for="img">Image</label>
+            <input type="file" id="img" name="img" accept="image/*">
             <input type="submit" value="save" id="save" name="save"/></div>
         </fieldset>
       </form>
