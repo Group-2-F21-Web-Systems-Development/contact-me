@@ -77,7 +77,7 @@
   <section class="attendies">
     <h2>Attendies</h2>
     <?php
-      $stmt= "SELECT users.photo_location, users.fname, users.lname 
+      $stmt= "SELECT users.photo_location, users.fname, users.lname, users.username
               FROM users
               INNER JOIN pairing ON pairing.userid = users.userid
               WHERE pairing.groupid = :groupID
@@ -92,11 +92,12 @@
           $fname = $user['fname'];
           $lname = $user['lname'];
           $photoLocation = $user['photo_location'];
+          $username = $user['username'];
 
           echo("
                 <li>
                   <img src='./$photoLocation' alt='photo of $fname $lname'>
-                  <a href='./personalprofile.php?user=$fname $lname'>$fname $lname</a>
+                  <a href='./personalprofile.php?user=$username'>$fname $lname</a>
                 </li>
               ");
         }
