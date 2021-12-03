@@ -67,7 +67,7 @@
         // show group password
         echo("<p id='group-password'><span>group password</span>: $groupPassword</p>");
     ?>
-    <form method="post" action="update-group.php?group=<?php echo($title); ?>">
+    <form method="post" action="update-group.php?group=<?php echo($title); ?>" enctype="multipart/form-data" >
     <?php if (isset($_GET['error'])) { echo "<p id='error'>" . $_GET['error'] . "</p>"; } ?>
       <label for="title">Title</label>
       <input id="title" name="title" type="text" value="<?php echo($title); ?>">
