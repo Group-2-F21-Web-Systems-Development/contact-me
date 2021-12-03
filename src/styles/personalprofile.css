@@ -23,15 +23,28 @@ body, html {
     display: flex;
     flex-direction: column;
   }
+
+  #img-container {
+    width:200px;
+    height:200px;
+    overflow: hidden;
+    border: 1px solid indigo;
+    border-width: thick;
+    border-style: outset;
+  }
   
   #bodyBlock img {
-      height: 200px;
-      width: 200px;
-      align-self: center;
-      border: 1px solid indigo;
-      border-width: thick;
-      border-style: outset;
-  
+      transform: translate(-15px, -15px);
+
+      /* --height: 200px;
+      height: calc(.8 * var(--height));
+      width: calc(.8 * var(--height));
+      min-height: calc(.8 * var(--height));
+      min-width: calc(.8 * var(--height));
+      overflow: hidden;
+      object-fit: cover; */
+      width:230px;
+      height:230px;
   }
 
   #bodyBlock h1 {
