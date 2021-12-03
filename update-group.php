@@ -61,7 +61,7 @@
         exit();
       }
     }
-
+    
     if (isset($_GET['group'])) {
       // editing existing group
 
@@ -69,7 +69,7 @@
       // $image = $_POST['img'];
 
       // ASSUMING THAT $image_location will be given by you :)
-      $image_location = "";
+      $image_location = $newfilename;
 
       if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 0) { // check if image file exists
         // no image file
@@ -86,11 +86,12 @@
       } else {
         // Image file posted
         // Update photo_location
+        include 'uploader_group.php';
         $stmt= "UPDATE groups
               SET title = :title, `description` = :descr, photo_location = :pholoc
               WHERE title = :OGtitle";
         $stmt = $conn->prepare($stmt);
-        $stmt->execute(array(':title' => $title, ':descr' => $description, ':pholoc' => $image_location, ':OGtitle' => $OGtitle));
+        $stmt->execute(array(':title' => $title, ':descr' => $description, ':pholoc' => $newfilename, ':OGtitle' => $OGtitle));
 
         // assuming it worked
         header("Location: individual-group.php?group=$title");
@@ -108,7 +109,8 @@
 
       // two sql statements:: one for inserting with image location, one for not
       // RANDOM STRING FOR GROUP_PASSWORD
-      $image_location = "";
+      
+      $image_location = $newfilename;
 
 
       $randomPass = generateRandomString(20); // random password, maybe hash it?
@@ -123,10 +125,11 @@
       } else {
         // image file posted
         // update photo location
+        include 'uploader_group.php';
         $stmt = "INSERT INTO groups(title, `description`, photo_location, created_by, group_password) 
                  VALUES(:title, :descr, :pholoc, :userID, :grpPass)";
         $stmt = $conn->prepare($stmt);
-        $stmt->execute(array(':title' => $title, ':descr' => $description, ':pholoc' => $image_location, ':userID' => $userID, 'grpPass' => $randomPass));
+        $stmt->execute(array(':title' => $title, ':descr' => $description, ':pholoc' => $newfilename, ':userID' => $userID, 'grpPass' => $randomPass));
       }
 
       // Add user who created group to the actual group
