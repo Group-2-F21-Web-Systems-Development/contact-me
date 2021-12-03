@@ -21,7 +21,7 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
     $pass = validate($_POST['pass']);
 
     if (empty($uname)) {
-        header("Location: login.php?error=User Name is required");
+        header("Location: login.php?error=Username is required");
         exit();
     } else if(empty($pass)) {
         header("Location: login.php?error=Password is required");
@@ -49,12 +49,12 @@ if (isset($_POST['username']) && isset($_POST['pass'])) {
                   header("Location: personalprofile.php");
                   exit();
                } else {
-                  header("Location: login.php?error=Incorect credentials");
+                  header("Location: login.php?error=Incorrect credentials");
                   exit();
                }
             }
         } else {
-            header("Location: login.php?error=Incorect credentials");
+            header("Location: login.php?error=Incorrect credentials");
             exit();
     }
   }

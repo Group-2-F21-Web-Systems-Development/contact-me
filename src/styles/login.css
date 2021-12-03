@@ -56,3 +56,10 @@ textarea:focus
 {
   background: #fee; 
 }
+
+#error{
+  /* position: absolute; */
+  text-align: center;
+  /* top: -3.5em; */
+  color: rgb(139, 17, 17);
+}

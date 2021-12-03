@@ -83,6 +83,11 @@
 </head>
 <body>
   <section id="join-group">
+  <?php
+      if (isset($_GET['error'])) {
+        echo "<p id='error'>". $_GET['error'] . "</p>";
+      }
+    ?>
     <h1>Join a Group</h1>
     <form action="join-group.php" method="post">
     <?php

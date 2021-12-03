@@ -12,6 +12,11 @@
 </head>
 <body>
    <div id="bodyBlock">
+   <?php
+      if (isset($_GET['error'])) {
+        echo "<p id='error'>". $_GET['error'] . "</p>";
+      }
+    ?>
       <h1>Sign up</h1>
       <form id="addForm" name="addForm" action="sign-up.php" method="post">
         <fieldset> 
@@ -106,3 +111,4 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
     }
 }
 ?>
+
