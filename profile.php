@@ -74,6 +74,7 @@
               ?>
               
             </div>
+            <p>anything without an @ first is considered to be a link</p>
             <input type="submit" value="save" id="save" name="save"/></div>
         </fieldset>
       </form>
