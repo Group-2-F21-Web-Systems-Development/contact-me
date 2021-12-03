@@ -63,12 +63,6 @@
 <body>
   <section id="edit-form">
     <h1><span>Edit Group:</span> <?php echo($title); ?></h1>
-    <?php
-      if (isset($_GET['error'])) {
-        echo "<p id='error'>". $_GET['error'] . "</p>";
-      }
-    ?>
-
     <?php 
         // show group password
         echo("<p id='group-password'><span>group password</span>: $groupPassword</p>");
@@ -96,6 +90,7 @@
   <section id="edit-form">
     <h1>Create <span>New</span> Group</h1>
     <form method="post" action="update-group.php?new=true">
+      <?php if (isset($_GET['error'])) { echo "<p id='error-new'>" . $_GET['error'] . "</p>"; } ?>
       <label for="title">Title</label>
       <input id="title" name="title" type="text" value="">
       <label for="description">Description</label>
