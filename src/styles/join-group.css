@@ -74,8 +74,15 @@ form *{
   flex-direction: column;
 }
 
-#error {
+/* #error {
   position: absolute;
   top: -3.5em;
   color: rgb(230, 107, 107);
+} */
+
+#error{
+  /* position: absolute; */
+  text-align: center;
+  /* top: -3.5em; */
+  color: rgb(139, 17, 17);
 }
