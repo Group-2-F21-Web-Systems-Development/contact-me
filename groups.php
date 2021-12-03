@@ -35,26 +35,25 @@
       $user->execute(array(':u' => $username));
       $user->fetchAll();
       // display create/alter group button (only for admin accounts)
+      // <div id="join-group-btn"><a href="./join-group.php">Join Group</a></div>
       if ($_SESSION['is_admin']) {
         echo('<div class= "create-groups-btn closed">
-                <h2>Create</h2>
-                <ul>
-                  <li id="new-group"><a href="./create-alter-group.php?new=true">+ group</a></li>');
-        $stmt = "SELECT * 
-                 FROM groups 
-                 WHERE created_by = :userid
-                 ORDER BY groupid DESC";
-        $userid = $_SESSION['id'];
-        $result = $conn->prepare($stmt);
-        $result->execute(array(':userid' => $userid));
-        if ($result->rowCount() > 0) {
-          $results = $result->fetchAll();
-          foreach ($results as $group) {
-            $title = $group['title'];
-            echo("<li><a href='./create-alter-group.php?group=$title'>$title</a></li>");
-          }
-        }
-        echo ('</ul> </div>');
+                <a href="./create-alter-group.php?new=true">Create</a></div>');
+        // $stmt = "SELECT * 
+        //          FROM groups 
+        //          WHERE created_by = :userid
+        //          ORDER BY groupid DESC";
+        // $userid = $_SESSION['id'];
+        // $result = $conn->prepare($stmt);
+        // $result->execute(array(':userid' => $userid));
+        // if ($result->rowCount() > 0) {
+        //   $results = $result->fetchAll();
+        //   foreach ($results as $group) {
+        //     $title = $group['title'];
+        //     echo("<li><a href='./create-alter-group.php?group=$title'>$title</a></li>");
+        //   }
+        // }
+        // echo ('</ul> </div>');
       }
       // display user's groups
       $stmt = "SELECT groups.title, groups.photo_location, groups.groupid
