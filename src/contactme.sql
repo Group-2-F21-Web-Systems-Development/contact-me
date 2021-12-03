@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2021 at 11:51 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Dec 02, 2021 at 12:23 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,8 +32,17 @@ CREATE TABLE `groups` (
   `title` varchar(255) NOT NULL,
   `description` longtext DEFAULT NULL,
   `created_by` int(11) NOT NULL,
-  `photo_location` longtext DEFAULT NULL
+  `photo_location` longtext DEFAULT NULL,
+  `group_password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`groupid`, `title`, `description`, `created_by`, `photo_location`, `group_password`) VALUES
+(1, 'Activities fair', 'At the RPI activities fair, students will get to visit all the clubs provided by RPI and have the opportunity to join them.', 1, '/src/img/activities_fair.jpg', 'nasd;fnjnslfjnlfnjsdljf'),
+(2, 'Monkey Club', 'Some primate species are recognized for their tree-swinging leaps that moved being acrobats to shame! Some monkey species take this “ arm at arm ” technique you may have seen children practicing on that “ monkey bars ” in the yard! Colobus monkeys, unlike other primate species, have hind legs that are much further than their forelimbs, creating for unbelievable leaping power with good velocity. In other words, monkeys are cool so come to our club interest meeting', 2, '/src/img/monkey.jpg', 'nlkfnslkfnlsf;snfkdnfjnsdf');
 
 -- --------------------------------------------------------
 
@@ -45,6 +54,15 @@ CREATE TABLE `pairing` (
   `groupid` int(11) NOT NULL,
   `userid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pairing`
+--
+
+INSERT INTO `pairing` (`groupid`, `userid`) VALUES
+(1, 1),
+(2, 1),
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -63,6 +81,16 @@ CREATE TABLE `users` (
   `is_admin` tinyint(1) DEFAULT 0,
   `photo_location` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userid`, `username`, `pass`, `fname`, `lname`, `email`, `links`, `is_admin`, `photo_location`) VALUES
+(1, 'coolguy', '$2y$10$mkn/jjp8Vgpcua3EfkHT1e/7202YGbjDmTHiPNJixem9dn0h.SG8G', 'Connor', 'Silloway', 'silloc@rpi.edu', '{\"Instagram\":\"@connorsilloway\",\"LinkedIn\":\"www.linkedin.com\\/in\\/connor-silloway\"}', 1, NULL),
+(2, 'bobbert', '$2y$10$jkw/3yQW7hXpidVM1uqmkuaKloFeu00oW6Xc96wWGje9cuUZv6MAq', 'bad guy', 'dumby', 'bad@gmail.com', NULL, 1, NULL),
+(4, 'g', '$2y$10$XiUJJBJgEb51ZzRKLjZAXuPsjra.tpb1qP.qeExXhiRu9ELFjLdpK', 'g', 'g', 'g', NULL, 0, NULL),
+(5, 'smitha4', '$2y$10$4pTBzgnMgFUMt29m6V04KOLaeXq2Em3JZoaDZ9utQQZOnknX43K5i', 'John', 'Smith', 'smitha4@rpi.edu', NULL, 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -96,13 +124,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `groupid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `groupid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

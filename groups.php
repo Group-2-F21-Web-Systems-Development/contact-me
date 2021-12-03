@@ -18,6 +18,7 @@
 <body>
   <section class="groups">
     <h1>View Your Groups</h1>
+    <div id="join-group-btn"><a href="./join-group.php">Join Group</a></div>
     <?php
       // connect to databse
       $dbusername= "root";
@@ -67,7 +68,7 @@
       $result->execute(array(':userID' => $userid));
       // $result = $conn->query($stmt);
       if ($result->rowCount() > 0) {
-        echo("<ul>");
+        echo("<ul id='group-list'>");
         $results = $result->fetchAll();
         foreach ($results as $group) {
           $source = $group['photo_location'];
