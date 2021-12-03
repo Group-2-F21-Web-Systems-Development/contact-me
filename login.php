@@ -14,7 +14,14 @@
 <div id="bodyBlock">
       <h1>Please Login</h1>
       <form id="addForm" name="addForm" action="db.php" method="post">
-        <fieldset> 
+      <?php
+      if (isset($_GET['error'])) {
+        echo "<p id='error'>". $_GET['error'] . "</p>";
+      }
+    ?>
+
+    
+      <fieldset> 
           <legend>Contact Information</legend>
           <div class="formData">
                          <!-- labels of the fields -->
