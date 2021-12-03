@@ -47,24 +47,40 @@
     } else {
       // check if user should have access to this group page
       $userid = $_SESSION['id'];
-      $stmt= "SELECT *
-              FROM pairing
-              WHERE userid = :userID";
-      $pstmt = $conn->prepare($stmt);
-      $pstmt->execute(array(':userID' => $userid));
-      if ($pstmt->rowCount() === 0) {
-        // group exists, but user is not in the group
-        echo("You do not have access to this group");
-      } else {
-
-      // display all group information
       $group = $group->fetch();
       $description = $group['description'];
       $photoLocation = $group['photo_location'];
       $description = $group['description'];
       $groupid = $group['groupid'];
+      $createdBy = $group['created_by'];
+
+      $stmt= "SELECT *
+              FROM pairing
+              WHERE userid = :userID AND groupid = :gID";
+      $pstmt = $conn->prepare($stmt);
+      $pstmt->execute(array(':userID' => $userid, ':gID' => $groupid));
+      if ($pstmt->rowCount() === 0) {
+        // group exists, but user is not in the group
+        echo("You do not have access to this group");
+      } else {
+        // check if user should be able to leave the group
+        $canLeave = 1;
+        if ($userid === $createdBy) {
+          // this user created the group, they can't leave!
+          $canLeave = 0;
+        }
+
+        // display all group information
   ?>
   <section class="group-info">
+    <?php
+      if (!$canLeave) {
+        // user owns this group
+        // display edit button so user can edit group
+        echo('<div id="edit-groups-btn">
+                <a href="./create-alter-group.php?group=' . $title . '">Edit</a></div>');
+      }
+    ?>
     <div class="column">
       <img src="./<?php echo($photoLocation); ?>" alt="photo of <?php echo($title); ?>">
       <h1><?php echo($title); ?></h1>
@@ -75,9 +91,16 @@
     </div>
   </section>
   <section class="attendies">
-    <h2>Attendies</h2>
+    <h2>Attendees</h2>
     <?php
-      $stmt= "SELECT users.photo_location, users.fname, users.lname 
+      if ($canLeave === 1) {
+    ?>
+    <form id="leave-group" action="remove-user.php?group=<?php echo $groupid; ?>" method="post">
+      <input type="submit" id="leave-btn" value="leave group">
+    </form>
+    <?php
+      }
+      $stmt= "SELECT users.photo_location, users.fname, users.lname, users.username
               FROM users
               INNER JOIN pairing ON pairing.userid = users.userid
               WHERE pairing.groupid = :groupID
@@ -92,11 +115,12 @@
           $fname = $user['fname'];
           $lname = $user['lname'];
           $photoLocation = $user['photo_location'];
+          $username = $user['username'];
 
           echo("
                 <li>
                   <img src='./$photoLocation' alt='photo of $fname $lname'>
-                  <a href='./personalprofile.php?user=$fname $lname'>$fname $lname</a>
+                  <a href='./personalprofile.php?user=$username'>$fname $lname</a>
                 </li>
               ");
         }

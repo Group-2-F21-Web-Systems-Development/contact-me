@@ -57,4 +57,40 @@ body, html {
   }
   
   
-  
+  #medias {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: .1em;
+  }
+
+  #medias > * {
+    flex-basis: 48% 
+  }
+
+  #new-media {
+    display: inline;
+    margin-left: 13.5em;
+    margin-bottom: .7em;
+    margin-top: .7em;
+    background-color: rgb(112, 196, 112);
+  }
+
+  #del-media {
+    background-color: rgb(226, 136, 136);
+  }
+
+  #new-media, #del-media {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid 1px black;
+    cursor: pointer;
+    color: black;
+  }
+
+  #new-media:hover, #del-media:hover {
+    transform: scale(1.1);
+  }
