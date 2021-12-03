@@ -26,7 +26,6 @@ if (isset($_SESSION['username'])) {
     return $str;
   }
 
-  $username = $_SESSION['username'];
   // sanitize data and check for incomplete fields
   function validate($data) {
     $data = trim($data);
@@ -54,18 +53,18 @@ if (isset($_SESSION['username'])) {
   foreach ($platforms as $platform) {
     // check if one field is filled in, but other isn't
     if (empty($platforms[$i]) xor empty($handles[$i])) {
-      header("Location: profile.php?error=Social media fields incomplete&user=$username");
+      header("Location: profile.php?error=Social media fields incomplete");
       exit();
     }
     $i++;
   }
   
   if (empty($fname)) {
-    header("Location: profile.php?error=First name is required&user=$username");
+    header("Location: profile.php?error=First name is required");
     exit();
   }
   if (empty($lname)) {
-    header("Location: profile.php?error=Last name is required&user=$username");
+    header("Location: profile.php?error=Last name is required");
     exit();
   }
 
@@ -80,7 +79,9 @@ if (isset($_SESSION['username'])) {
   $stmt = $conn->prepare($stmt);
   $stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':links' => $links, ':userID' => $userID));
 
+  include 'uploader.php';
   // go to users personal page (for display)
+  $username = $_SESSION['username'];
   header("Location: personalprofile.php?user=$username");
   exit();
 
