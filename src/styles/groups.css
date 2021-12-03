@@ -9,7 +9,7 @@ h1 {
 }
 
 /* create groups and see old created groups button */
-.create-groups-btn {
+.create-groups-btn, #join-group-btn {
   position: absolute;
   right: 4em;
   top: 0;
@@ -26,48 +26,23 @@ h1 {
   align-content: center;
 }
 
-.create-groups-btn h2 {
+#join-group-btn {
+  left: 4em;
+}
+
+.create-groups-btn a, #join-group-btn a {
+  font-size: 23px;
   display: block;
   padding: 0;
   margin: 0;
+  width: 100%;
+  height: 100%;
   margin-top: .6em;
   text-align: center;
 }
 
-.create-groups-btn ul {
-  --width: 120px;
-
-  z-index: 94;
-  /* height: 100px; */
-  width: var(--width);
-  position: absolute;
-  top: calc(2px + 100%);
-  right: 1.1em;
-  padding: 0;
-  margin: 0;
-  border: 2px solid var(--clr-accent);
-  border-top: none;
-  list-style-type: none;
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: 100ms ease-in;
-  text-align: center;
-
-
-  background-color: var(--clr-light);
-}
-
-.create-groups-btn:hover ul {
-  transform: scaleY(1);
-}
-
-.create-groups-btn:hover ul li {
-  padding: 1em 0;
-  border-bottom: 2px solid var(--clr-accent);
-}
-
-.create-groups-btn:hover ul li:nth-last-of-type(1) {
-  border: none;
+#join-group-btn a:hover,  .create-groups-btn a:hover {
+  text-decoration: none;
 }
 
 #new-group {
@@ -78,9 +53,10 @@ h1 {
   color: rgba(0, 0, 0, 0.61);
 }
 
-.groups ul {
+#group-list {
   padding: 0;
   margin: 0;
+  margin-top: 4em;
 }
 
 .group {
