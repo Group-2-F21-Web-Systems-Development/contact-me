@@ -112,3 +112,26 @@ input:focus, input:hover, #description:hover, #description:focus {
   left: 17em;
   color: rgb(230, 107, 107);
 }
+
+#current-photo {
+  overflow: hidden;
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  display: inline;
+}
+
+#current-photo-p {
+  width: fit-content;
+  display: inline;
+  margin-right: 50px;
+}
+
+#img-content {
+  display: flex;
+  flex: row;
+}
+
+#img {
+  width: fit-content;
+}
