@@ -76,6 +76,7 @@
               ?>
               
             </div>
+            <p>anything without an @ first is considered to be a link</p>
             <label for="img">Image</label>
             <input type="file" id="img" name="img" accept="image/*">
             <input type="submit" value="save" id="save" name="save"/></div>
