@@ -108,13 +108,18 @@
     </form>
     <?php
       }
-      $stmt= "SELECT users.photo_location, users.fname, users.lname, users.username
+      $stmt= "SELECT users.photo_location, users.fname, users.lname, users.username, users.userid, 0 AS priority
               FROM users
               INNER JOIN pairing ON pairing.userid = users.userid
-              WHERE pairing.groupid = :groupID
-              ORDER BY users.fname, users.lname";
+              WHERE pairing.groupid = :groupID AND NOT pairing.userid = :usid
+
+              UNION
+              SELECT photo_location, fname, lname, username, users.userid, 1 AS priority
+              FROM users
+              WHERE userid = :usid
+              ORDER BY priority DESC";
       $users = $conn->prepare($stmt);
-      $users->execute(array(':groupID' => $groupid));
+      $users->execute(array(':groupID' => $groupid, ':usid' => $createdBy));
       if ($users->rowCount() === 0) {
         echo("There are no users in this group yet!");
       } else {
@@ -125,8 +130,13 @@
           $photoLocation = $user['photo_location'];
           $username = $user['username'];
 
+          if ($user['userid'] === $createdBy) {
+            // owner of group
+            echo("<li id='group-owner'>");
+          } else { 
+            echo("<li>");
+          }
           echo("
-                <li>
                   <img src='./$photoLocation' alt='photo of $fname $lname'>
                   <a href='./personalprofile.php?user=$username'>$fname $lname</a>
                 </li>
