@@ -166,3 +166,14 @@ img {
   /* text-decoration: underline; */
   border-bottom: 2px solid var(--clr-accent);
 }
+
+#group-owner:after {
+  background-color: red;
+}
+
+#group-owner:before {
+  position: absolute;
+  content: 'group owner:';
+  top: -1.4em;
+  left: 110px;
+}
