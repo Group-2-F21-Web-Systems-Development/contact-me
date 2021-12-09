@@ -9,9 +9,12 @@
       if (!$conn) {
          echo "Connection failed!";
       }
+
+      $question = '';
+      $num;
       if (isset($_GET['question'])){
          $num = $_GET['question'];
-         $question = '';
+         
          if($num == 1){
             $question = "What's your favorite movie?";
          }else if ($num == 2){
@@ -39,7 +42,7 @@
 </head>
 <body>
 <div id="bodyBlock">
-   <form id="addForm" name="addForm" action="sec.php" method="post">
+   <form id="addForm" name="addForm" action="sec.php<?php echo("?question=$num"); ?>" method="post">
       <fieldset>
          <label for="question">Question:</label>
          <?php
@@ -64,7 +67,7 @@
    
          $answer = validate($_POST['answer']);
          if (empty($answer)) {
-            header("Location: sec.php?error=answer is required");
+            header("Location: sec.php?error=answer is required&question=$num");
             exit();
          }else{
             $sql = "select sec_answer from users where username=:uname";
@@ -76,7 +79,7 @@
                   header("Location: change_pass.php");
                   exit();  
                }else{
-                  header("Location: sec.php?error=answer is wrong");
+                  header("Location: sec.php?error=answer is wrong&question=$num");
                   exit();
                }       
             }
