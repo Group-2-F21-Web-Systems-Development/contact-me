@@ -12,7 +12,7 @@ $(document).ready(function() { // after everything in html loads
       $.get('./src/ajax/getsession.php', function (data) {
         jsObj =  JSON.parse(data);
         username = jsObj['username'];
-        if (!(Object.keys(jsObj).length === 0)) {
+        if(jsObj.hasOwnProperty('username')){
           sessionExists = 1;
         }
       });

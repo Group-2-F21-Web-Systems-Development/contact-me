@@ -43,7 +43,7 @@
    
          $uname = validate($_POST['username']);
          // echo $uname;
-         $sql = "select sec_question from users where username=:uname";
+         $sql = "select sec_question, userid from users where username=:uname";
          $result = $conn->prepare($sql);
          $result->execute(array(':uname'=> $uname));
          if ($result->rowCount() === 0) {
@@ -53,7 +53,7 @@
          }
          $sec = $result->fetchAll();
          foreach($sec as $row){
-            $_SESSION['username'] = $uname;
+            $_SESSION['userid'] = $row['userid'];
             header("Location: sec.php?question=$row[0]");
             exit();
          }

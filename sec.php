@@ -1,7 +1,7 @@
 <?php
   session_start();
-  if (isset($_SESSION['username'])) {
-      $uname = $_SESSION['username'];
+  if (isset($_SESSION['userid'])) {
+      $userid = $_SESSION['userid'];
       $dbusername= "root";
       $dbpassword = "group2websys";
       
@@ -70,9 +70,9 @@
             header("Location: sec.php?error=answer is required&question=$num");
             exit();
          }else{
-            $sql = "select sec_answer from users where username=:uname";
+            $sql = "select sec_answer from users where userid=:usid";
             $result = $conn->prepare($sql);
-            $result->execute(array(':uname'=> $uname));
+            $result->execute(array(':usid'=> $userid));
             $ans = $result->fetchAll();
             foreach($ans as $row){
                if(password_verify($answer, $row[0])){
