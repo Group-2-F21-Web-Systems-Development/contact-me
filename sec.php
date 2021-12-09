@@ -38,14 +38,18 @@
   <script defer src="./src/ajax/ajax.js"></script>
 </head>
 <body>
+<div id="bodyBlock">
    <form id="addForm" name="addForm" action="sec.php" method="post">
-      <label for="question">Question:</label>
-      <?php
-         echo "<p>" . $question . "</p>"
-      ?>
-      <input name="answer" id="answer" type="text" maxlength="255">
-      <button type="submit">submit</button>
+      <fieldset>
+         <label for="question">Question:</label>
+         <?php
+            echo "<p>" . $question . "</p>"
+         ?>
+         <input name="answer" id="answer" type="text" maxlength="255">
+         <button type="submit">submit</button>
+      </fieldset>
    </form>
+   </div>   
 </body>
 </html>
 

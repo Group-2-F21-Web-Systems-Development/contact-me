@@ -11,11 +11,15 @@
   <script defer src="./src/ajax/ajax.js"></script>
 </head>
 <body>
+<div id="bodyBlock">
    <form id="addForm" name="addForm" action="forgot.php" method="post">
-      <label for="username">username:</label>
-      <div class="value"><input type="text" size="60" value="" name="username" id="username"/></div>
-      <button type="submit">submit</button>
+      <fieldset> 
+         <label for="username">username:</label>
+         <div class="value"><input type="text" size="60" value="" name="username" id="username"/></div>
+         <button type="submit">submit</button>
+      </fieldset>
    </form>
+<div id="bodyBlock">  
 </body>
 </html>
 

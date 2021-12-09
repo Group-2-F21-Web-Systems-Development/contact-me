@@ -25,13 +25,17 @@
   <script defer src="./src/ajax/ajax.js"></script>
 </head>
 <body>
+<div id="bodyBlock">   
    <form id="addForm" name="addForm" action="change_pass.php" method="post">
-      <label for="pass">Password:</label>
-      <input name="pass" id="pass" type="text" maxlength="255">
-      <label for="confirm">Confirm Password:</label>
-      <div class="value"><input name="confirm" id="confirm" type="password" maxlength="255"></div>
-      <button type="submit">submit</button>
+      <fieldset>
+         <label for="pass">New Password:</label>
+         <div class="value"><input name="pass" id="pass" type="password" maxlength="255"></div>
+         <label for="confirm">Confirm Password:</label>
+         <div class="value"><input name="confirm" id="confirm" type="password" maxlength="255"></div>
+         <button type="submit">submit</button>
+      </fieldset>
    </form>
+</div>   
 </body>
 </html>
 
@@ -58,11 +62,13 @@
                  WHERE username = :uname";
          $pass = password_hash($pass, PASSWORD_BCRYPT);
          $stmt = $conn->prepare($stmt);
-         $stmt->execute(array(':pass'=> $pass, ':userID' => $uname));
+         echo $uname;
+         $stmt->execute(array(':pass'=> $pass, ':uname' => $uname));
          session_unset();
          session_destroy();
          setcookie(session_name(), "", time() - 3600);
          header("Location: login.php");
       }
    }
+  }
 ?>
