@@ -72,7 +72,7 @@
       // ASSUMING THAT $image_location will be given by you :)
       $image_location = $newfilename;
 
-      if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 0) { // check if image file exists
+      if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 4) { // check if image file exists
         // no image file
         // Don't update photo_location
         $stmt= "UPDATE groups
@@ -127,7 +127,7 @@
       }
       
       $userID = $_SESSION['id'];
-      if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 0) { // check if image file exists
+      if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 4) { // check if image file exists
         // no image file
         // don't update photo_location
         $stmt = "INSERT INTO groups(title, `description`, created_by, group_password) 
@@ -137,6 +137,7 @@
       } else {
         // image file posted
         // update photo location
+        echo $_FILES['img']['size'] . ' error '.  $_FILES['img']['error'];
         include 'uploader_group.php';
         $stmt = "INSERT INTO groups(title, `description`, photo_location, created_by, group_password) 
                  VALUES(:title, :descr, :pholoc, :userID, :grpPass)";
