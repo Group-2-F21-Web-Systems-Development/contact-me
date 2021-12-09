@@ -22,7 +22,8 @@
   if (isset($_SESSION['username'])) {
     $title = validate($_POST['title']);
     $description = validate($_POST['description']);
-    $OGtitle = $_GET['group'];
+    $OGtitle;
+    if (isset($_GET['group'])){ $OGtitle = $_GET['group']; }
     if (empty($title)) {
       // user hasn't entered a title
       if (isset($_GET['group'])) {
@@ -110,10 +111,21 @@
       // two sql statements:: one for inserting with image location, one for not
       // RANDOM STRING FOR GROUP_PASSWORD
       
-      $image_location = $newfilename;
+      // $image_location = $newfilename;
 
-
-      $randomPass = generateRandomString(20); // random password, maybe hash it?
+      $randomPass;
+      $passSame = 1;
+      $stmt = "SELECT * FROM groups WHERE group_password = :gp";
+      $stmt = $conn->prepare($stmt);      
+      while ($passSame) {
+        $randomPass = generateRandomString(20);
+        $stmt->execute(array(':gp' => $randomPass));
+        if ($stmt->rowCount() === 0) {
+          // group password does not exist yet
+          $passSame = 0;
+        }
+      }
+      
       $userID = $_SESSION['id'];
       if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 4) { // check if image file exists
         // no image file
