@@ -34,7 +34,7 @@
   
 
   if (isset($_GET['group'])){
-    // user is accessing a group that already exists 
+    // user is accessing a group that already exists (editing)
     $title = $_GET['group'];
 
     $stmt= "SELECT * FROM groups WHERE title = :title";
@@ -52,6 +52,7 @@
     $description = $group['description'];
     $photoLocation = $group['photo_location'];
     $groupPassword = $group['group_password'];
+    $groupid = $group['groupid'];
 
     if ($groupCreator != $_SESSION['id']) {
       // this user did not create the group
@@ -66,8 +67,10 @@
     <?php 
         // show group password
         echo("<p id='group-password'><span>group password</span>: $groupPassword</p>");
+        // show delete group button
+        echo("<form id='delete-form' method='post' action='delete-group.php?group=$groupid'><button id='delete-btn'>Delete $title</button></form>");
     ?>
-    <form method="post" action="update-group.php?group=<?php echo($title); ?>" enctype="multipart/form-data" >
+    <form id="group-form" method="post" action="update-group.php?group=<?php echo($title); ?>" enctype="multipart/form-data" >
     <?php if (isset($_GET['error'])) { echo "<p id='error'>" . $_GET['error'] . "</p>"; } ?>
       <label for="title">Title</label>
       <input id="title" name="title" type="text" value="<?php echo($title); ?>">
@@ -93,7 +96,7 @@
 <body>
   <section id="edit-form">
     <h1>Create <span>New</span> Group</h1>
-    <form method="post" action="update-group.php?new=true" enctype="multipart/form-data">
+    <form id="group-form" method="post" action="update-group.php?new=true" enctype="multipart/form-data">
       <?php if (isset($_GET['error'])) { echo "<p id='error-new'>" . $_GET['error'] . "</p>"; } ?>
       <label for="title">Title</label>
       <input id="title" name="title" type="text" value="">
