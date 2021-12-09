@@ -1,6 +1,7 @@
 <?php
   session_start();
   if (isset($_SESSION['username'])) {
+      $uname = $_SESSION['username'];
       $dbusername= "root";
       $dbpassword = "group2websys";
       
@@ -8,7 +9,7 @@
       if (!$conn) {
          echo "Connection failed!";
       }
-      if (isset($_GET['question']){
+      if (isset($_GET['question'])){
          $num = $_GET['question'];
          $question = '';
          if($num == 1){
@@ -49,31 +50,33 @@
 </html>
 
 <?php
-   if (isset($_POST['answer'])) {
-      function validate($data) {
-         $data = trim($data);
-         $data = stripslashes($data);
-         $data = htmlspecialchars($data);
-         return $data;
-      }
-  
-      $answer = validate($_POST['answer']);
-      if (empty($answer)) {
-         header("Location: sec.php?error=answer is required");
-         exit();
-      }else{
-         $sql = "select sec_answer from users where username=:uname";
-         $result = $conn->prepare($sql);
-         $result->execute(array(':uname'=> $uname));
-         $ans = $result->fetchAll()
-         foreach $row in $ans:
-            if(password_verify($row, $answer)){
-               header("Location: change_pass.php");
-               exit();  
-            }else{
-               header("Location: sec.php?error=answer is wrong");
-               exit();
-            }       
+      if (isset($_POST['answer'])) {
+         function validate($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+         }
+   
+         $answer = validate($_POST['answer']);
+         if (empty($answer)) {
+            header("Location: sec.php?error=answer is required");
+            exit();
+         }else{
+            $sql = "select sec_answer from users where username=:uname";
+            $result = $conn->prepare($sql);
+            $result->execute(array(':uname'=> $uname));
+            $ans = $result->fetchAll();
+            foreach($ans as $row){
+               if(password_verify($answer, $row[0])){
+                  header("Location: change_pass.php");
+                  exit();  
+               }else{
+                  header("Location: sec.php?error=answer is wrong");
+                  exit();
+               }       
+            }
+         }
       }
    }
 

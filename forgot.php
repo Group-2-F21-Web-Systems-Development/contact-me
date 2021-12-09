@@ -20,7 +20,7 @@
 </html>
 
 <?php
-      session_start()
+      session_start();
       $dbusername= "root";
       $dbpassword = "group2websys";
       
@@ -28,8 +28,9 @@
       if (!$conn) {
          echo "Connection failed!";
       }
-      if (isset($_POST['username']){
-         function validate($data) {
+
+      if (isset($_POST['username'])){
+         function validate($data){
             $data = trim($data);
             $data = stripslashes($data);
             $data = htmlspecialchars($data);
@@ -37,16 +38,15 @@
          }
    
          $uname = validate($_POST['username']);
-         $ques = "select sec_question from users where username= :username";
-         $result = $conn->query($ques);
-         $result->execute(array(':username' => $uname));
+         echo $uname;
+         $sql = "select sec_question from users where username=:uname";
+         $result = $conn->prepare($sql);
+         $result->execute(array(':uname'=> $uname));
          $sec = $result->fetchAll();
-         foreach $row in $sec:
+         foreach($sec as $row){
             $_SESSION['username'] = $uname;
-            header("sec.php?question=$sec");
-
-
+            header("Location: sec.php?question=$row[0]");
+            exit();
+         }
       }
-  }
-
 ?>
