@@ -28,7 +28,7 @@
       $dbusername= "root";
       $dbpassword = "group2websys";
       
-      $conn = new PDO('mysql:host=localhost;dbname=contactme',$dbusername, $dbpassword);
+      $conn = new PDO('mysql:host=localhost;dbname=contactme',$dbusername, $dbpassword, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
       if (!$conn) {
          echo "Connection failed!";
       }
@@ -42,10 +42,15 @@
          }
    
          $uname = validate($_POST['username']);
-         echo $uname;
+         // echo $uname;
          $sql = "select sec_question from users where username=:uname";
          $result = $conn->prepare($sql);
          $result->execute(array(':uname'=> $uname));
+         if ($result->rowCount() === 0) {
+            // user does not exist
+            header("Location: forgot.php?error=This user does not exist");
+            exit();
+         }
          $sec = $result->fetchAll();
          foreach($sec as $row){
             $_SESSION['username'] = $uname;
