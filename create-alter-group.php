@@ -54,6 +54,7 @@
     $photoLocation = $group['photo_location'];
     $groupPassword = $group['group_password'];
     $groupid = $group['groupid'];
+    $whitelist = $group['whitelist'];
 
     if ($groupCreator != $_SESSION['id']) {
       // this user did not create the group
@@ -81,8 +82,13 @@
         <label for="platform">Enter platforms you want users to see in the group</label>
         <button id="new-media" type="button">+</button>
         <button id="del-media" type="button">-</button>
-        <!-- write php foreach for all platforms already exist -->
-        <input type='text' class="platform" size='40' value='' name='platform[]' placeholder='platform'/>
+        <?php
+          // display all whitelisted platforms
+          $whitelist = json_decode($whitelist, true);
+          foreach ($whitelist as $platform) {
+            echo ("<input type='text' class='platform' size='40' value='$platform' name='platform[]' placeholder='platform'/>");
+          }
+        ?>
       </div>
       <label for="img">Image</label>
       <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">

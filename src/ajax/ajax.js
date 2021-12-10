@@ -7,11 +7,11 @@ $(document).ready(function() { // after everything in html loads
     success: function(responseData, status) {
       // acquire php session super global as json object
       var sessionExists = 0;
-      var username;
+      var userid;
       $.ajaxSetup({cache: false, async: false})
       $.get('./src/ajax/getsession.php', function (data) {
         jsObj =  JSON.parse(data);
-        username = jsObj['username'];
+        userid = jsObj['id'];
         if (!(Object.keys(jsObj).length === 0)) {
           sessionExists = 1;
         }
@@ -27,7 +27,7 @@ $(document).ready(function() { // after everything in html loads
         if ( i === 2 && sessionExists === 1) {
           // profile page
           a.append(Object.keys(liEl));
-          a.setAttribute("href", Object.values(liEl) + "?user=" + username);
+          a.setAttribute("href", Object.values(liEl) + "?user=" + userid);
         } else if ( i === 4 && sessionExists === 1) {
           // signup
           a.append("Logout");

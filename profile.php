@@ -11,13 +11,14 @@
     }
 
     // ?user=$username
-    $username = $_GET['user'];
-    $stmt = "SELECT * FROM users WHERE username = :u";
+    $userid = $_GET['user'];
+    $stmt = "SELECT * FROM users WHERE userid = :u";
     $user = $conn->prepare($stmt);
-    $username = $_SESSION['username'];
-    $user->execute(array(':u' => $username));
-    if ($user->rowCount() === 0) {
+    $loggedID = $_SESSION['id'];
+    $user->execute(array(':u' => $userid));
+    if ($user->rowCount() === 0 || $loggedID != $userid) {
       // user does not exist
+      // trying to edit someone elses profile
     } else {
       // 1 user exists
       $user = $user->fetch();
