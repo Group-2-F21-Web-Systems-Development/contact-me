@@ -17,8 +17,8 @@ newMedia.addEventListener("click", function() {
 
 var delMedia = document.getElementById("del-media");
 delMedia.addEventListener("click", function() { 
-  console.log(document.getElementById("platform-container").childNodes.length);
-  if (document.getElementById("platform-container").childNodes.length != 9) {
+  // console.log(document.getElementById("platform-container").children.length);
+  if (document.getElementById("platform-container").children.length != 4) {
     document.getElementById("platform-container").lastElementChild.remove();
   }
 });

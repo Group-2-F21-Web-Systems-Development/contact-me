@@ -77,6 +77,13 @@
       <input id="title" name="title" type="text" value="<?php echo($title); ?>">
       <label for="description">Description</label>
       <textarea id="description" name="description" cols="30" rows="10"><?php echo($description); ?></textarea>
+      <div id="platform-container">
+        <label for="platform">Enter platforms you want users to see in the group</label>
+        <button id="new-media" type="button">+</button>
+        <button id="del-media" type="button">-</button>
+        <!-- write php foreach for all platforms already exist -->
+        <input type='text' class="platform" size='40' value='' name='platform[]' placeholder='platform'/>
+      </div>
       <label for="img">Image</label>
       <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
       <button id= "save">Save</button>
