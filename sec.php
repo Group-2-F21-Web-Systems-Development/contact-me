@@ -46,6 +46,12 @@
       <fieldset>
          <label for="question">Question:</label>
          <?php
+      if (isset($_GET['error'])) {
+        echo "<p id='error'>". $_GET['error'] . "</p>";
+      }
+    ?>
+
+         <?php
             echo "<p>" . $question . "</p>"
          ?>
          <input name="answer" id="answer" type="text" maxlength="255">
