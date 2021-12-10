@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2021 at 06:57 PM
+-- Generation Time: Dec 11, 2021 at 12:45 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -32,20 +32,17 @@ CREATE TABLE `groups` (
   `title` varchar(255) NOT NULL,
   `description` longtext DEFAULT NULL,
   `created_by` int(11) NOT NULL,
-  `photo_location` longtext DEFAULT 'uploads/48724i2bsakfnsaoidjfoqijwr82104182jdsaf;oj31u4.jpeg',
-  `group_password` varchar(255) NOT NULL
+  `photo_location` longtext NOT NULL DEFAULT 'uploads/48724i2bsakfnsaoidjfoqijwr82104182jdsaf;oj31u4.jpeg',
+  `group_password` varchar(255) NOT NULL,
+  `whitelist` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `groups`
 --
 
-INSERT INTO `groups` (`groupid`, `title`, `description`, `created_by`, `photo_location`, `group_password`) VALUES
-(1, 'Activities fair', 'At the RPI activities fair, students will get to visit all the clubs provided by RPI and have the opportunity to join them.', 1, './uploads/1638552150.jpg', 'nasd;fnjnslfjnlfnjsdljf'),
-(11, 'BSA Fashion Show', 'The annual fashion show put on by the Black Students Alliance dazzled audiences with creative looks and models who walked with attitude and elegance. This walk, titled “Ice Me Out,” expressed two sides of luxe: opulent, glittery fabrics mixed with edgy streetwear looks and silhouettes. Cami tank dresses of velvet and sequined fabric were accessorized with oversized fur jackets and cross necklaces, and the menswear looks included brilliantly embroidered shirts in both modern and traditional African styles.', 1, './uploads/1638552224.jpg', 'xfbe8LIJFSkVkaTc8KWP'),
-(12, 'Mayors Cup Alumni and Fan Reception', 'Mark your calendar and plan to join other RPI hockey fans for a reception at the MVP Arena in Albany (formerly the Albany Times Union Center) prior to the RPI vs. Union Mayor\'s Cup games. Complimentary snacks and a cash bar will be available. Watch the alumni website and your email for registration information for the reception. Attendees of this event must agree to comply with all health and safety protocols required by the event sponsors, the venue, and New York State.', 1, './uploads/1638552375.jpg', 'h0Rl6iul4IPIoE9xdHfc'),
-(13, 'Albany Tulip Fesitval', 'The City of Albany\'s Virtual Tulip Festival will be held throughout the month of May. Tune in virtually for performances by local musicians in unique locations, tours of the tulip beds with the City of Albany gardeners, kid-friendly videos and more! Watch on Albany Events YouTube, Albany Events Facebook or Public Access Channel Albany 1302. The 2021 Albany Tulip Queen and Court and Capital Region Mother of the Year will be presented at a later date with their own celebrations.', 1, './uploads/1638552421.jpg', 'ATlic8J0AI1KIg62rAWF'),
-(14, 'Denver | Social Gathering at The Novel Strand Brewing Company', 'Every year in Albany begins with a celebration of the region\'s evolving culinary scene. As flowers begin to bloom, Albany honors the city\'s treasured tulips &amp; Dutch roots. During the summer, live music and festivals fill the weekends. As the leaves begin to change, Albany gets in on the hocus pocus with spooky stories and nightmarish thrills. The end of the year is capped off with merriment and holiday celebrations. Explore a small selection of Albany\'s annual events and festivals!', 1, './uploads/1638552474.jpg', 'hoKXpytL02pIK3UiFrqs');
+INSERT INTO `groups` (`groupid`, `title`, `description`, `created_by`, `photo_location`, `group_password`, `whitelist`) VALUES
+(28, 'thign', 'yes', 9, 'uploads/48724i2bsakfnsaoidjfoqijwr82104182jdsaf;oj31u4.jpeg', 'KN4B4qR4DEb66hcQfSIU', '[\"monkey\",\"business\"]');
 
 -- --------------------------------------------------------
 
@@ -63,27 +60,8 @@ CREATE TABLE `pairing` (
 --
 
 INSERT INTO `pairing` (`groupid`, `userid`) VALUES
-(1, 1),
-(1, 8),
-(1, 9),
-(1, 10),
-(1, 11),
-(11, 1),
-(11, 8),
-(11, 9),
-(12, 1),
-(12, 8),
-(12, 9),
-(12, 10),
-(12, 11),
-(13, 1),
-(13, 8),
-(13, 9),
-(13, 10),
-(13, 11),
-(14, 1),
-(14, 8),
-(14, 9);
+(28, 9),
+(28, 11);
 
 -- --------------------------------------------------------
 
@@ -100,19 +78,20 @@ CREATE TABLE `users` (
   `email` varchar(320) NOT NULL,
   `links` longtext DEFAULT NULL,
   `is_admin` tinyint(1) DEFAULT 0,
-  `photo_location` longtext DEFAULT 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'
+  `photo_location` longtext NOT NULL DEFAULT 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg',
+  `sec_question` int(11) NOT NULL,
+  `sec_answer` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userid`, `username`, `pass`, `fname`, `lname`, `email`, `links`, `is_admin`, `photo_location`) VALUES
-(1, 'coolguy', '$2y$10$mkn/jjp8Vgpcua3EfkHT1e/7202YGbjDmTHiPNJixem9dn0h.SG8G', 'Connor', 'Silloway', 'silloc@rpi.edu', '{\"Instagram\":\"@connorsilloway\",\"LinkedIn\":\"www.linkedin.com\\/in\\/connor-silloway\"}', 1, './uploads/1638552108.jpg'),
-(8, 'JakeyJake', '$2y$10$bWKPEmSLx8reBEmjjlM/Ae6NReQSSPAqPAm482s9DDOuRZBETybSq', 'Jacob', 'De\'Marco', 'Jacob@gmail.com', NULL, 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
-(9, 'JTP_leader', '$2y$10$0iwjzSv0Q4JyyiVeVKo0fO/rmnra2WwDzyHWxEEuh5/ulPIfkWTBG', 'Barry', 'Goldberg', 'BigTasty@gmail.com', '{\"Twitter\":\"@Barry_speaks\"}', 0, './uploads/1638552976.jpeg'),
-(10, 'Mason-cool', '$2y$10$WdxIqTrd8KzAiOa395hCLulPcL7h2zY9JRrghwIjSA94fQS86ecHW', 'Mason', 'Carroll', 'Carroll@outlook.com', NULL, 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'),
-(11, 'Davis-fun', '$2y$10$6NTJhSzPanfyI.YzXNwtkOqFRdHU6I2bQiUuzuLt4mD2oC2iOMpLi', 'James', 'Davis', 'Davis7@gmail.com', '[]', 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg');
+INSERT INTO `users` (`userid`, `username`, `pass`, `fname`, `lname`, `email`, `links`, `is_admin`, `photo_location`, `sec_question`, `sec_answer`) VALUES
+(7, 'alanabarth', '$2y$10$VaC3BF2IDeng.If7l6LbbutZlNVMS6cA2obERkKNKpXop8cgagb1.', 'Alana', 'Barth', 'alanabarth@yahoo.com', NULL, 1, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 2, '$2y$10$TrvpuJDGtCa7qa5f0KJEsebxm6u5RMUgb8oVXy9NIydgzBb/u/lxW'),
+(9, 'coolguy', '$2y$10$kElHdIy3CloyFedv9XARsuof0G88FuA/5dSKC5r8NjjIg0c9Z4BLu', 'Connor', 'Silloway', 'Connor@gmail.com', '{\"cool\":\"@thing\",\"monkey\":\"@epic\",\"amazing\":\"@epic\"}', 1, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 3, '$2y$10$Se7STNsotdWrqClBXGH.1ugOKaxPMXOWxo5PfcqwTAoxtA4fG9RbW'),
+(10, 'conna', '$2y$10$kElHdIy3CloyFedv9XARsuof0G88FuA/5dSKC5r8NjjIg0c9Z4BLu', 'conna', 'conna', 'conna', NULL, 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 0, ''),
+(11, 'myguy', '$2y$10$ffEAkrmqq82FLaho6Sl4v.4oxhwS4WtvpZIUF9Xd/Vn8FGVyoC.DC', 'Kyle', 'Smith', 'smith@rpi.edu', '{\"monkey\":\"@business\",\"goob\":\"@tube\",\"business\":\"@gunk\"}', 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -146,7 +125,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `groupid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `groupid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`
