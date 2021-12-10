@@ -1,7 +1,7 @@
 <?php
   session_start();
-  if (isset($_SESSION['username'])) {
-      $uname = $_SESSION['username'];
+  if (isset($_SESSION['userid'])) {
+      $userid = $_SESSION['userid'];
       $dbusername= "root";
       $dbpassword = "group2websys";
       
@@ -59,11 +59,11 @@
      } else{
          $stmt= "UPDATE users
                  SET pass = :pass
-                 WHERE username = :uname";
+                 WHERE userid = :usid";
          $pass = password_hash($pass, PASSWORD_BCRYPT);
          $stmt = $conn->prepare($stmt);
          echo $uname;
-         $stmt->execute(array(':pass'=> $pass, ':uname' => $uname));
+         $stmt->execute(array(':pass'=> $pass, ':usid' => $userid));
          session_unset();
          session_destroy();
          setcookie(session_name(), "", time() - 3600);
