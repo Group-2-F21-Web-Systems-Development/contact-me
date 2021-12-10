@@ -76,8 +76,12 @@
       <input id="title" name="title" type="text" value="<?php echo($title); ?>">
       <label for="description">Description</label>
       <textarea id="description" name="description" cols="30" rows="10"><?php echo($description); ?></textarea>
-      <label for="img">Image</label>
-      <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
+      <div id="img-content">
+        <label for="img">Image</label>
+        <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
+        <p id="current-photo-p">current photo:</p>
+        <img id='current-photo' src="<?php echo($photoLocation); ?>" alt="image of <?php echo($title); ?>">
+      </div>
       <button id= "save">Save</button>
     </form>
   </section>
@@ -98,8 +102,12 @@
       <input id="title" name="title" type="text" value="">
       <label for="description">Description</label>
       <textarea id="description" name="description" cols="30" rows="10"></textarea>
-      <label for="img">Image</label>
-      <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
+      <div id="img-content">
+        <label for="img">Image</label>
+        <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
+        <p id="current-photo-p">current photo:</p>
+        <img id='current-photo' src="./uploads/48724i2bsakfnsaoidjfoqijwr82104182jdsaf;oj31u4.jpeg" alt="default group image">
+      </div>
       <button id= "save">Save</button>
     </form>
   </section>
