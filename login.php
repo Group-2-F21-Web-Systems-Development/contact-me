@@ -35,6 +35,7 @@
           <button type="submit">LOGIN</button>
         </fieldset>
       </form>
+      <a href="forgot.php">Forgot Password?</a>
     </div>
 </body>
 </html>

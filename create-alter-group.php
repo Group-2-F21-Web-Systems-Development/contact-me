@@ -90,8 +90,12 @@
           }
         ?>
       </div>
-      <label for="img">Image</label>
-      <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
+      <div id="img-content">
+        <label for="img">Image</label>
+        <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
+        <p id="current-photo-p">current photo:</p>
+        <img id='current-photo' src="<?php echo($photoLocation); ?>" alt="image of <?php echo($title); ?>">
+      </div>
       <button id= "save">Save</button>
     </form>
   </section>
@@ -118,8 +122,12 @@
         <button id="del-media" type="button">-</button>
         <input type='text' class="platform" size='40' value='' name='platform[]' placeholder='platform'/>
       </div>
-      <label for="img">Image</label>
-      <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
+      <div id="img-content">
+        <label for="img">Image</label>
+        <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
+        <p id="current-photo-p">current photo:</p>
+        <img id='current-photo' src="./uploads/48724i2bsakfnsaoidjfoqijwr82104182jdsaf;oj31u4.jpeg" alt="default group image">
+      </div>
       <button id= "save">Save</button>
     </form>
   </section>

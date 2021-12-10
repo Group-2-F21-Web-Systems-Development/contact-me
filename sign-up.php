@@ -25,17 +25,25 @@
                          <!-- labels of the fields -->
                          <!-- when you click on the label you can type in the field -->
             <label for="first-name">First Name:</label>
-            <div class="value"><input name="first-name" id="first-name" type="text"></div>
+            <div class="value"><input name="first-name" id="first-name" type="text" maxlength="100"></div>
             <label for="last-name">Last Name:</label>
-            <div class="value"><input name="last-name" id="last-name" type="text"></div>
+            <div class="value"><input name="last-name" id="last-name" type="text" maxlength="255"></div>
             <label for="email">Email:</label>
-            <div class="value"><input name="email" id="email" type="text"></div>
+            <div class="value"><input name="email" id="email" type="text" maxlength="320"></div>
             <label for="username">Username:</label>
-            <div class="value"><input name="username" id="username" type="text"></div>
+            <div class="value"><input name="username" id="username" type="text" maxlength="255"></div>
             <label for="password">Password:</label>
-            <div class="value"><input name="password" id="password" type="password"></div>
+            <div class="value"><input name="password" id="password" type="password" maxlength="255"></div>
             <label for="confirm">Confirm Password:</label>
-            <div class="value"><input name="confirm" id="confirm" type="password"></div>
+            <div class="value"><input name="confirm" id="confirm" type="password" maxlength="255"></div>
+            <label for="sec">Security Question:</label>
+            <select name="security" id="security">
+               <option value="1">What's your favorite movie?</option>
+               <option value="2">What is the name of your best friend in grade school?</option>
+               <option value="3">What is your mother's maiden name?</option>
+               <option value="4">What sport did you play growing up?</option>
+            </select>
+            <input name="answer" id="answer" type="text" maxlength="255">
           </div>
           <button type="submit">Sign Up</button>
         </fieldset>
@@ -69,6 +77,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
     $fname = validate($_POST['first-name']);
     $lname = validate($_POST['last-name']);
     $confirm = validate($_POST['confirm']);
+    $question = validate($_POST["security"]);
+    $sec = validate($_POST['answer']);
     echo $uname . ' ' . $pass . ' ' . $email . ' ';
 
 
@@ -90,6 +100,9 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
     } else if($pass != $confirm){
         header("Location: sign-up.php?error=Passwords don't match");
         exit();
+    } else if(empty($question) || empty($sec)) {
+         header("Location: sign-up.php?error=need to select a security question and answer");
+         exit();
     } else {
       $sql = "select * from users where username=:uname";
       $result = $conn->prepare($sql);
@@ -100,11 +113,13 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
             header("Location: sign-up.php?error=username already exists");
             exit();
       }else{
-        $sql = "insert into users(username, pass, email, fname, lname) VALUES(:uname, :pass, :email, :fname, :lname)";
+        $sql = "insert into users(username, pass, email, fname, lname, sec_question, sec_answer) VALUES(:uname, :pass, :email, :fname, :lname, :sec_question, :sec_answer)";
         $result = $conn->prepare($sql);
         $pass = password_hash($pass, PASSWORD_BCRYPT);
+        $sec = strtolower($sec);
+        $sec = password_hash($sec, PASSWORD_BCRYPT);
         echo 'user created!';
-        $result->execute(array(':uname'=> $uname, ':pass' => $pass, ':email' => $email, ':fname' => $fname, ':lname' => $lname));
+        $result->execute(array(':uname'=> $uname, ':pass' => $pass, ':email' => $email, ':fname' => $fname, ':lname' => $lname, ':sec_question' => $question, ':sec_answer' => $sec));
         header("Location: login.php");
         exit();
       }
