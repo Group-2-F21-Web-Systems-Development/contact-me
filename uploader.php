@@ -1,7 +1,7 @@
 <?php
   $username = $_SESSION['username'];
   // Check if image file is a actual image or fake image
-  if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 0) { // check if image file exists
+  if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 4) { // check if image file exists
      #header("Location: personalprofile.php?user=$username&noImage");
   }else{
    $target_dir = "uploads/";

@@ -15,6 +15,12 @@
    <form id="addForm" name="addForm" action="forgot.php" method="post">
       <fieldset> 
          <label for="username">username:</label>
+      <?php
+      if (isset($_GET['error'])) {
+        echo "<p id='error'>". $_GET['error'] . "</p>";
+      }
+    ?>
+
          <div class="value"><input type="text" size="60" value="" name="username" id="username"/></div>
          <button type="submit">submit</button>
       </fieldset>
