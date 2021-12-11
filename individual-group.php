@@ -128,7 +128,7 @@
           $fname = $user['fname'];
           $lname = $user['lname'];
           $photoLocation = $user['photo_location'];
-          $username = $user['username'];
+          $userid= $user['userid'];
 
           if ($user['userid'] === $createdBy) {
             // owner of group
@@ -138,7 +138,7 @@
           }
           echo("
                   <img src='./$photoLocation' alt='photo of $fname $lname'>
-                  <a href='./personalprofile.php?user=$username'>$fname $lname</a>
+                  <a href='./personalprofile.php?user=$userid&group=$groupid'>$fname $lname</a>
                 </li>
               ");
         }

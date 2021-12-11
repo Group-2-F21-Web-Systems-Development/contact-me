@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="./src/styles/style.css">
   <link rel="stylesheet" href="./src/styles/create-alter-groups.css">
   <script defer src="./src/ajax/ajax.js"></script>
+  <script defer src="./create-alter-groups.js"></script>
 </head>
 <?php 
   if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] === 0 ) {
@@ -53,6 +54,7 @@
     $photoLocation = $group['photo_location'];
     $groupPassword = $group['group_password'];
     $groupid = $group['groupid'];
+    $whitelist = $group['whitelist'];
 
     if ($groupCreator != $_SESSION['id']) {
       // this user did not create the group
@@ -76,6 +78,18 @@
       <input id="title" name="title" type="text" value="<?php echo($title); ?>">
       <label for="description">Description</label>
       <textarea id="description" name="description" cols="30" rows="10"><?php echo($description); ?></textarea>
+      <div id="platform-container">
+        <label for="platform">Enter platforms you want users to see in the group</label>
+        <button id="new-media" type="button">+</button>
+        <button id="del-media" type="button">-</button>
+        <?php
+          // display all whitelisted platforms
+          $whitelist = json_decode($whitelist, true);
+          foreach ($whitelist as $platform) {
+            echo ("<input type='text' class='platform' size='40' value='$platform' name='platform[]' placeholder='platform'/>");
+          }
+        ?>
+      </div>
       <div id="img-content">
         <label for="img">Image</label>
         <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">
@@ -102,6 +116,12 @@
       <input id="title" name="title" type="text" value="">
       <label for="description">Description</label>
       <textarea id="description" name="description" cols="30" rows="10"></textarea>
+      <div id="platform-container">
+        <label for="platform">Enter platforms you want users to see in the group</label>
+        <button id="new-media" type="button">+</button>
+        <button id="del-media" type="button">-</button>
+        <input type='text' class="platform" size='40' value='' name='platform[]' placeholder='platform'/>
+      </div>
       <div id="img-content">
         <label for="img">Image</label>
         <input type="file" id="img" name="img" src="./src/img/activities_fair.jpg" accept="image/*">

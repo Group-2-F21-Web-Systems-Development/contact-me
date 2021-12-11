@@ -81,8 +81,8 @@ if (isset($_SESSION['username'])) {
 
   include 'uploader.php';
   // go to users personal page (for display)
-  $username = $_SESSION['username'];
-  header("Location: personalprofile.php?user=$username");
+  $userid = $_SESSION['id'];
+  header("Location: personalprofile.php?user=$userid");
   exit();
 
 } else {
