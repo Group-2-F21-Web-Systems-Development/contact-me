@@ -143,19 +143,15 @@ input:focus, input:hover, #description:hover, #description:focus {
 }
 
 #delete-btn {
-  width: 200px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  width: fit-content;
   height: 4em;
   border: 2px solid var(--clr-accent);
   border-radius: 100vw;
+  text-align: left;
   cursor: pointer;
   background-color: rgba(255, 58, 58, 0.479);
   color: black;
   text-align: center;
-  display: inline;
-  padding: 0 20px;
 }
 
 #new-media {
