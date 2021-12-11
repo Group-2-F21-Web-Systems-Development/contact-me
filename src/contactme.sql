@@ -33,16 +33,16 @@ CREATE TABLE `groups` (
   `description` longtext DEFAULT NULL,
   `created_by` int(11) NOT NULL,
   `photo_location` longtext NOT NULL DEFAULT 'uploads/48724i2bsakfnsaoidjfoqijwr82104182jdsaf;oj31u4.jpeg',
-  `group_password` varchar(255) NOT NULL
+  `group_password` varchar(255) NOT NULL,
+  `whitelist` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `groups`
 --
 
-INSERT INTO `groups` (`groupid`, `title`, `description`, `created_by`, `photo_location`, `group_password`) VALUES
-(23, 'hello', 'test', 7, './uploads/1639068672.png', 'fVRhUM2nJPU6hpXumVi1'),
-(24, 'dead poets', 'fans of dead poets movie', 7, './uploads/1639069839.jpg', 'K6n8s0EaNxsu3Q4zJmB4');
+INSERT INTO `groups` (`groupid`, `title`, `description`, `created_by`, `photo_location`, `group_password`, `whitelist`) VALUES
+(28, 'thign', 'yes', 9, 'uploads/48724i2bsakfnsaoidjfoqijwr82104182jdsaf;oj31u4.jpeg', 'KN4B4qR4DEb66hcQfSIU', '[\"monkey\",\"business\"]');
 
 -- --------------------------------------------------------
 
@@ -60,8 +60,8 @@ CREATE TABLE `pairing` (
 --
 
 INSERT INTO `pairing` (`groupid`, `userid`) VALUES
-(23, 7),
-(24, 7);
+(28, 9),
+(28, 11);
 
 -- --------------------------------------------------------
 
@@ -88,7 +88,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `username`, `pass`, `fname`, `lname`, `email`, `links`, `is_admin`, `photo_location`, `sec_question`, `sec_answer`) VALUES
-(7, 'alanabarth', '$2y$10$VaC3BF2IDeng.If7l6LbbutZlNVMS6cA2obERkKNKpXop8cgagb1.', 'Alana', 'Barth', 'alanabarth@yahoo.com', NULL, 1, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 2, '$2y$10$TrvpuJDGtCa7qa5f0KJEsebxm6u5RMUgb8oVXy9NIydgzBb/u/lxW');
+(7, 'alanabarth', '$2y$10$VaC3BF2IDeng.If7l6LbbutZlNVMS6cA2obERkKNKpXop8cgagb1.', 'Alana', 'Barth', 'alanabarth@yahoo.com', NULL, 1, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 2, '$2y$10$TrvpuJDGtCa7qa5f0KJEsebxm6u5RMUgb8oVXy9NIydgzBb/u/lxW'),
+(9, 'coolguy', '$2y$10$kElHdIy3CloyFedv9XARsuof0G88FuA/5dSKC5r8NjjIg0c9Z4BLu', 'Connor', 'Silloway', 'Connor@gmail.com', '{\"cool\":\"@thing\",\"monkey\":\"@epic\",\"amazing\":\"@epic\"}', 1, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 3, '$2y$10$Se7STNsotdWrqClBXGH.1ugOKaxPMXOWxo5PfcqwTAoxtA4fG9RbW'),
+(10, 'conna', '$2y$10$kElHdIy3CloyFedv9XARsuof0G88FuA/5dSKC5r8NjjIg0c9Z4BLu', 'conna', 'conna', 'conna', NULL, 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 0, ''),
+(11, 'myguy', '$2y$10$ffEAkrmqq82FLaho6Sl4v.4oxhwS4WtvpZIUF9Xd/Vn8FGVyoC.DC', 'Kyle', 'Smith', 'smith@rpi.edu', '{\"monkey\":\"@business\",\"goob\":\"@tube\",\"business\":\"@gunk\"}', 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -122,7 +125,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `groupid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `groupid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`

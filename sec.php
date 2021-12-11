@@ -81,6 +81,7 @@
             $result->execute(array(':usid'=> $userid));
             $ans = $result->fetchAll();
             foreach($ans as $row){
+               $answer = strtolower($answer);
                if(password_verify($answer, $row[0])){
                   header("Location: change_pass.php");
                   exit();  

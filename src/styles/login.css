@@ -63,3 +63,10 @@ textarea:focus
   /* top: -3.5em; */
   color: rgb(139, 17, 17);
 }
+
+#success {
+    /* position: absolute; */
+    text-align: center;
+    /* top: -3.5em; */
+    color: rgb(50, 104, 45);
+}

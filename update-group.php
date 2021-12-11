@@ -24,6 +24,31 @@
     $description = validate($_POST['description']);
     $OGtitle;
     if (isset($_GET['group'])){ $OGtitle = $_GET['group']; }
+    $in_platforms = $_POST['platform'];
+    $platforms = array();
+    $i=0;
+    foreach ($in_platforms as $platform) {
+      // validate each platform entered
+      // only put platform into array if it exists
+      $validated = validate($platform);
+      if (!empty($validated)) {
+        $platforms[$i] = $validated;
+        $i++;
+      }
+    }
+    if (empty($platforms)) {
+      // user hasn't entered any platforms
+      if (isset($_GET['group'])) {
+        // user is editing group
+        header("Location: create-alter-group.php?group=$OGtitle&error=You must enter at least one platform!");
+        exit();
+      }
+      if (isset($_GET['new']) && $_GET['new'] = 'true') {
+        // user is creating group
+        header("Location: create-alter-group.php?new=true&error=You must enter at least one platform!");
+        exit();
+      }
+    }   
     if (empty($title)) {
       // user hasn't entered a title
       if (isset($_GET['group'])) {
@@ -36,7 +61,11 @@
         header("Location: create-alter-group.php?new=true&error=You must enter a title!");
         exit();
       }
-    }    
+    }
+
+    // convert platforms to text
+    $whitelist = json_encode($platforms);
+    // echo $whitelist;
 
     // connect to databse
     $dbusername= "root";
@@ -70,16 +99,16 @@
       // $image = $_POST['img'];
 
       // ASSUMING THAT $image_location will be given by you :)
-      $image_location = $newfilename;
+      // $image_location = $newfilename;
 
       if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 4) { // check if image file exists
         // no image file
         // Don't update photo_location
         $stmt= "UPDATE groups
-              SET title = :title, `description` = :descr
+              SET title = :title, `description` = :descr, whitelist = :wl
               WHERE title = :OGtitle";
         $stmt = $conn->prepare($stmt);
-        $stmt->execute(array(':title' => $title, ':descr' => $description, ':OGtitle' => $OGtitle));
+        $stmt->execute(array(':title' => $title, ':descr' => $description, ':OGtitle' => $OGtitle, ':wl' => $whitelist));
 
         // assuming it worked
         header("Location: individual-group.php?group=$title");
@@ -89,10 +118,10 @@
         // Update photo_location
         include 'uploader_group.php';
         $stmt= "UPDATE groups
-              SET title = :title, `description` = :descr, photo_location = :pholoc
-              WHERE title = :OGtitle";
+                SET title = :title, `description` = :descr, photo_location = :pholoc, whitelist = :wl
+                WHERE title = :OGtitle";
         $stmt = $conn->prepare($stmt);
-        $stmt->execute(array(':title' => $title, ':descr' => $description, ':pholoc' => $newfilename, ':OGtitle' => $OGtitle));
+        $stmt->execute(array(':title' => $title, ':descr' => $description, ':pholoc' => $newfilename, ':OGtitle' => $OGtitle, ':wl' => $whitelist));
 
         // assuming it worked
         header("Location: individual-group.php?group=$title");
@@ -130,19 +159,19 @@
       if ($_FILES['img']['size'] == 0 && $_FILES['img']['error'] == 4) { // check if image file exists
         // no image file
         // don't update photo_location
-        $stmt = "INSERT INTO groups(title, `description`, created_by, group_password) 
-                 VALUES(:title, :descr, :userID, :grpPass)";
+        $stmt = "INSERT INTO groups(title, `description`, created_by, group_password, whitelist) 
+                 VALUES(:title, :descr, :userID, :grpPass, :wl)";
         $stmt = $conn->prepare($stmt);
-        $stmt->execute(array(':title' => $title, ':descr' => $description, ':userID' => $userID, 'grpPass' => $randomPass));
+        $stmt->execute(array(':title' => $title, ':descr' => $description, ':userID' => $userID, 'grpPass' => $randomPass, ':wl' => $whitelist));
       } else {
         // image file posted
         // update photo location
         echo $_FILES['img']['size'] . ' error '.  $_FILES['img']['error'];
         include 'uploader_group.php';
-        $stmt = "INSERT INTO groups(title, `description`, photo_location, created_by, group_password) 
-                 VALUES(:title, :descr, :pholoc, :userID, :grpPass)";
+        $stmt = "INSERT INTO groups(title, `description`, photo_location, created_by, group_password, whitelist) 
+                 VALUES(:title, :descr, :pholoc, :userID, :grpPass, :wl)";
         $stmt = $conn->prepare($stmt);
-        $stmt->execute(array(':title' => $title, ':descr' => $description, ':pholoc' => $newfilename, ':userID' => $userID, 'grpPass' => $randomPass));
+        $stmt->execute(array(':title' => $title, ':descr' => $description, ':pholoc' => $newfilename, ':userID' => $userID, 'grpPass' => $randomPass, ':wl' => $whitelist));
       }
 
       // Add user who created group to the actual group
