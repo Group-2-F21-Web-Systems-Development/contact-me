@@ -18,6 +18,9 @@
       if (isset($_GET['error'])) {
         echo "<p id='error'>". $_GET['error'] . "</p>";
       }
+      if (isset($_GET['success'])) {
+        echo "<p id='success'>". $_GET['success'] . "</p>";
+      }
     ?>
 
     
