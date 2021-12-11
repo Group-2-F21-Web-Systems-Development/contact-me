@@ -11,16 +11,9 @@ BSA Fashion Show: f2aCkINBfCxKhwOZYbk9
 Nutcracker: LP7oAUmfXsM2SOO7G3rm
 Festival of Trees: IaFc6BPwD3SK6pQdUzcx
 
-
-
-
-
 Username: jfilawo
 Password: orangeplus
-
-What’s your favorite movie?
-John Q
-
+What’s your favorite movie? John Q
 
 Username: silloc
 Password: lsadfjlsnf;lsdnf;djfs
@@ -31,13 +24,7 @@ Password: sdfnskdsdf89nflkdsf
 What sport did you play growing up? Lucia
 
 
-Alana Barth 
-Connor Silloway
-Jasmine Filawo
-ContactMe
-
-
-Navigating Our Website 
+**Navigating Our Website**
 
     Our group, JAC, created a website called ContactMe, which is a virtual business card that makes networking and saving contacts with people you meet at events very easy. The way our website works is that if you want to host an event using ContactMe, you will have to sign up on our page to create a username, password, and password for your event. The event password is used when attendees arrive at the event and use their phone to scan the event’s QR code. The QR code will provide a password for the event and once attendees go on ContactMe, they will enter in that password so that they can be added as an attendee of that event. Attendees of an event will have to create an account on ContactMe so that they can join a group (also known as an event) using the password they were given from the QR code.
 	
@@ -47,21 +34,17 @@ Navigating Our Website
 
    When admins want to create a group, they must provide a title, description, and an image of the event. When admins create a group, they still have the option of editing the title,description, and image for an event. 
 
-Frontend (HTML, CSS, and Javascript, JSON/AJAX)
+**Frontend (HTML, CSS, and Javascript, JSON/AJAX)**
    For the frontend part of our website, we wanted to make sure that the color theme was consistent on all pages, and users will see that we chose purple. We used different shades of purple with unique background images on the profile, logout, sign up, and edit pages. We made sure to include headers indicating the page the user is on, making it easier to navigate through our website. We also used HTML to provide the input fields for the following pages: login, sign up, edit page, create group page, and edit group page, so that users can input text. 
 
-Backend (PHP and mySQL) 
+**Backend (PHP and mySQL)**
 	For the backend part of our website, we are storing all the user information and group information in mySQL and using PHP to connect with and send queries to the database. 
 
  On the groups page where all of the list of groups joined, will show a list of the attendees, so people can connect with people after events. 
 
 
-Difficulties
+**Difficulties**
     When trying to put together the pages (profile, logout, sign up, and edit pages) where users had to input text in the fields, we had to make sure that that text area did not end up being the background image of the page. We had to make sure the background image would also fit the page and not be on the header area of our website. We searched for google images that would fit our purple theme and choose backgrounds that would appeal to our users. To avoid these errors and make sure the format of these pages were clean, we had to use chrome developer tools to look at the margins, to fix the alignment of the background images and the input fields, Other problems we ran into was allowing users to upload images when creating an account or making edits to their profile or groups page. 
 
-Future Plans
+**Future Plans**
     As of now, the only way a user can make themselves an admin is through phpmyadmin, but in the future we want users to be able to make themselves admins when they create an account. We want to also create QR codes that will provide the password for these groups. Lastly, we would like attendees of events to be able to follow each other and make friends with people they want to stay in contact with. 
-
-
-
-
