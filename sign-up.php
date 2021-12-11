@@ -118,9 +118,9 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
         $pass = password_hash($pass, PASSWORD_BCRYPT);
         $sec = strtolower($sec);
         $sec = password_hash($sec, PASSWORD_BCRYPT);
-        echo 'user created!';
+        // echo 'user created!';
         $result->execute(array(':uname'=> $uname, ':pass' => $pass, ':email' => $email, ':fname' => $fname, ':lname' => $lname, ':sec_question' => $question, ':sec_answer' => $sec));
-        header("Location: login.php");
+        header("Location: login.php?success=Account created!");
         exit();
       }
     }
