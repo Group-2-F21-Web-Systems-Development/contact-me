@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2021 at 10:49 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- Generation Time: Dec 11, 2021 at 02:06 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,11 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`groupid`, `title`, `description`, `created_by`, `photo_location`, `group_password`, `whitelist`) VALUES
-(28, 'thign', 'yes', 9, 'uploads/48724i2bsakfnsaoidjfoqijwr82104182jdsaf;oj31u4.jpeg', 'KN4B4qR4DEb66hcQfSIU', '[\"monkey\",\"business\"]');
+(29, '2021 Schenectady Festival of Trees', 'Celebrate the season as we fill our galleries with lighted fir trees! Decorated from classic to kooky Christmas styles, the Festival of Trees glows with the enchantment of the holidays. Join us throughout December for a shimmering, festive season.\r\n\r\nThe Festival of Trees is a fundraiser for, and a partnership between, the Schenectady County Historical Society and the YWCA NorthEastern NY. Admission is $6 for adults 12+.', 13, './uploads/1639183418.jpg', 'IaFc6BPwD3SK6pQdUzcx', '[\"@albany_ny\",\"@albany_com\",\"@albanynewyork\"]'),
+(30, 'The Nutcracker Albany Berkshire Ballet', 'The story of the Albany Berkshire Ballet stretches back to the mid 1950s with the foundation of the Cantarella School of Dance in Pittsfield, Mass, by Artistic Director Madeline Cantarella Culpo. The Albany Berkshire Ballet is nationally recognized for its versatility in performing both classical and contemporary dance works. The company’s classical repertory rivals that of any large company performing today.', 13, './uploads/1639183701.jpg', 'LP7oAUmfXsM2SOO7G3rm', '[\"@albanyberkshireballet\",\"@albanyberkshireballet\",\"@BerkshireBallet\"]'),
+(31, 'BSA Fashion Show', 'The annual fashion show put on by the Black Students Alliance dazzled audiences with creative looks and models who walked with attitude and elegance. This walk, titled “Ice Me Out,” expressed two sides of luxe: opulent, glittery fabrics mixed with edgy streetwear looks and silhouettes. Cami tank dresses of velvet and sequined fabric were accessorized with oversized fur jackets and cross necklaces, and the menswear looks included brilliantly embroidered shirts in both modern and traditional African styles.', 13, './uploads/1639183960.png', 'f2aCkINBfCxKhwOZYbk9', '[\"@ rpibsa\",\"@rpibsafashion\"]'),
+(32, 'Stress Relief Days at The Mueller Center', 'Stop by The Mueller Center Monday, December 13 and Tuesday, December 14 for our end of the semester Stress Relief Days. De-stress with our free spa services*, chair massages, fitness classes*, cookie decorating class (12/13 at 5pm only)*, art therapy activities, hydration station and healthy snacks provided by Rensselaer Dining.n*Limited spots for these services. Sign up at imleagues.com/rpi', 13, './uploads/1639184186.jpg', 'kj6x5WTzdVjPRqIS5mdU', '[\"@rpicampusrecreation\",\"@RPICampusRec\"]'),
+(33, 'Weird Al Yankovic: Unfortunate Return of the Ill-Advised Vanity Tour', 'Almost four years after his first foray into unfamiliar concert territory with his highly-acclaimed Ridiculously Self-Indulgent, Ill-Advised Vanity Tour, &quot;Weird Al&quot; Yankovic is pressing his luck again, this time with The Unfortunate Return of the Ridiculously Self-Indulgent, Ill-Advised Vanity Tour. The tour marks Weird Al\'s long-anticipated return to the concert stage after his hugely successful Strings Attached Tour in 2019 where he performed each night alongside a full symphony orchestra. Once again drawing from his back catalogue of 14 studio albums, Weird Al promises to deliver a different set list every night, with no two shows the same. As before, rather than focusing on the hits from his career, the show will feature Yankovic\'s non-parody material - the somewhat more obscure pastiches and original songs that have largely escaped the pop culture radar but are adored by his long-time fans.', 13, './uploads/1639184379.jpg', 'tDtaTXqHFfgfOCfg6Zsv', '[\"@ spinmag\",\"@SPIN\"]');
 
 -- --------------------------------------------------------
 
@@ -60,8 +64,11 @@ CREATE TABLE `pairing` (
 --
 
 INSERT INTO `pairing` (`groupid`, `userid`) VALUES
-(28, 9),
-(28, 11);
+(29, 13),
+(30, 13),
+(31, 13),
+(32, 13),
+(33, 13);
 
 -- --------------------------------------------------------
 
@@ -88,10 +95,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `username`, `pass`, `fname`, `lname`, `email`, `links`, `is_admin`, `photo_location`, `sec_question`, `sec_answer`) VALUES
-(7, 'alanabarth', '$2y$10$VaC3BF2IDeng.If7l6LbbutZlNVMS6cA2obERkKNKpXop8cgagb1.', 'Alana', 'Barth', 'alanabarth@yahoo.com', NULL, 1, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 2, '$2y$10$TrvpuJDGtCa7qa5f0KJEsebxm6u5RMUgb8oVXy9NIydgzBb/u/lxW'),
-(9, 'coolguy', '$2y$10$kElHdIy3CloyFedv9XARsuof0G88FuA/5dSKC5r8NjjIg0c9Z4BLu', 'Connor', 'Silloway', 'Connor@gmail.com', '{\"cool\":\"@thing\",\"monkey\":\"@epic\",\"amazing\":\"@epic\"}', 1, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 3, '$2y$10$Se7STNsotdWrqClBXGH.1ugOKaxPMXOWxo5PfcqwTAoxtA4fG9RbW'),
-(10, 'conna', '$2y$10$kElHdIy3CloyFedv9XARsuof0G88FuA/5dSKC5r8NjjIg0c9Z4BLu', 'conna', 'conna', 'conna', NULL, 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 0, ''),
-(11, 'myguy', '$2y$10$ffEAkrmqq82FLaho6Sl4v.4oxhwS4WtvpZIUF9Xd/Vn8FGVyoC.DC', 'Kyle', 'Smith', 'smith@rpi.edu', '{\"monkey\":\"@business\",\"goob\":\"@tube\",\"business\":\"@gunk\"}', 0, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 0, '');
+(13, 'jfilawo', '$2y$10$oAQIO8jbQY4Q7ousogGYyOQfSg1zBBycbSrF9vXca6VuVhqcMIDb6', 'Jasmine', 'Filawo', 'jfilawo24@yahoo.com', NULL, 1, 'uploads/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg', 1, '$2y$10$/gOQwRBT4fkMJC9LRcwsRearSjxcAJUlATl/whjMq1PDRev6ilJaW');
 
 --
 -- Indexes for dumped tables
@@ -125,13 +129,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `groupid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `groupid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
